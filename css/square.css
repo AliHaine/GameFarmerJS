@@ -1,0 +1,18 @@
+.square {
+	width: 32px;
+	height: 32px;
+	float: left;
+	position: relative;
+}
+
+.square img:not(.ground) {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.square-hover-effect {
+	transition: border-radius 0.3s ease;
+	border-radius: 13px;
+}

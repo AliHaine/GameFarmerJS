@@ -1,0 +1,57 @@
+body {
+	background-color: #9bd4c3;
+	margin: 0;
+	-webkit-user-select: none;
+	user-select: none; /* Disable text selection */
+	-webkit-user-drag: none; /* Disable dragging in WebKit browsers */
+	-moz-user-select: none; /* Disable text selection in Firefox */
+	-ms-user-select: none; /* Disable text selection in Internet Explorer/Edge */
+	-webkit-touch-callout: none; /* Disable the callout that appears when long-pressing a link */
+}
+
+#map {
+	border-radius: 10px;
+	position: fixed;
+	background-color: #8842d5;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	margin: 0 auto;
+}
+
+.hover-ground:hover {
+	border-radius: 13px;
+}
+
+.buttonPlay {
+	border-radius: 8px;
+	border-style: none;
+	box-sizing: border-box;
+	color: #FFFFFF;
+	cursor: pointer;
+	display: inline-block;
+	font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	font-weight: 500;
+	height: 40px;
+	line-height: 20px;
+	list-style: none;
+	margin: 0;
+	outline: none;
+	padding: 10px 16px;
+    position: fixed;
+    background-color: #8842d5;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+	text-align: center;
+	text-decoration: none;
+	transition: color 100ms;
+	vertical-align: baseline;
+	touch-action: manipulation;
+}
+
+.buttonPlay:hover,
+.buttonPlay:focus {
+    background-color: #b580ed;
+}

@@ -1,0 +1,30 @@
+#ressourcebar li {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 90px;
+}
+
+#ressourcebar li .txt {
+    color: white;
+    padding: 2px 2px;
+    flex-grow: 1;
+}
+
+#ressourcebar li img {
+    vertical-align: middle;
+    margin-left: 5px; 
+}
+
+#ressourcebar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #8842d5;
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }

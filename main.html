@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm Simulator 1</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/square.css">
+    <link rel="stylesheet" href="css/toolbar.css">
+    <link rel="stylesheet" href="css/ressourcebar.css">
+    <link rel="icon" type="image/png" href="assets/image/icon/favicon.png" />
+
+
+</head>
+<body draggable="false">
+    <button class="buttonPlay">Play</button>
+
+    <nav id="ressourcebar">
+        <ul></ul>
+    </nav>
+
+    <nav id="toolbar">
+        <ul>
+            <li class="left-item"><img src="assets/image/icon/settings_icon.png" alt="Settings"><span class="txt">Settings</span></li>
+            <li class="center-items">
+                <div class="dropup">
+                    <img src="assets/image/icon/crops_icon.png" alt="Crops icon">
+                    <span class="txt">Crops</span>
+                    <div id="dropup-crop" class="dropup-content"></div>
+                </div>
+                <div><img src="assets/image/icon/static_icon.png" alt="Static icon"><span class="txt">Static</span></div>
+                <div class="dropup" >
+                    <img src="assets/image/icon/crops_icon.png" alt="Fence icon">
+                    <span class="txt">Fence</span>
+                    <div id="dropup-fence" class="dropup-content"></div>
+                </div>
+            </li>
+            <li class="right-item"><img src="assets/image/icon/shop_icon.png" alt="Right Icon"><span class="txt">Shop</span></li>
+        </ul>
+    </nav>
+
+    <script src="src/utils.js"></script>
+    <script src="src/resource.js"></script>
+    <script src="src/block_element/block_builder.js"></script>
+    <script src="src/game_assets.js"></script>
+
+    <script src="src/block_element/block_action.js"></script>
+    <script src="src/block_element/block_actions/block_action_default.js"></script>
+    <script src="src/block_element/block_actions/block_action_harvest.js"></script>
+    <script src="src/block_element/block_actions/block_action_prune.js"></script>
+    <script src="src/block_element/block_actions/block_action_plowe.js"></script>
+    <script src="src/block_element/block_actions/block_action_unplowe.js"></script>
+
+    <script src="src/block_element/block_element.js"></script>
+    <script src="src/block_element/elements/element_crop.js"></script>
+    <script src="src/block_element/elements/element_ground.js"></script>
+    <script src="src/block_element/elements/element_static.js"></script>
+
+    <script src="src/game_setting.js"></script>
+
+    <script src="src/listener/map_listener.js"></script>
+    <script src="src/listener/global_listener.js"></script>
+    <script src="src/map/map.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

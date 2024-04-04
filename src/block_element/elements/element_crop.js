@@ -4,7 +4,7 @@ class ElementCrop extends BlockElement {
 		this.timeToGrowth = timeToGrowth;
 		this.icon = images[images.length - 1];
 		this.displayName = displayName;
-		this.htmlDisplayCategory = TOOLBAR_CATEGORY.CROP;
+		this.setHtmlDisplayCategory(TOOLBAR_CATEGORY.CROP)
 	}
 
 	setElementToSquare(square) {
@@ -23,7 +23,7 @@ class ElementCrop extends BlockElement {
 		return (this.timeToGrowth * stage + (Math.random() * this.timeToGrowth)) * globalGrowthSpeed;
 	}
 
-	build() {
+	/*build() {
 		let div = document.createElement('div');
 		div.appendChild(this.icon);
 
@@ -32,5 +32,17 @@ class ElementCrop extends BlockElement {
 		div.insertAdjacentHTML('beforeend', spanHTML);
 		this.htmlDisplayCategory.appendChild(div);
 		return this;
-	}
+	}*/
+
+	/*setHtmlDisplayCategory(htmlDisplayCategory) {
+        this.htmlDisplayCategory = htmlDisplayCategory;
+        let div = document.createElement('div');
+		div.appendChild(this.icon);
+
+		let spanHTML = `<span class="txt">${this.displayName}</span>`;
+
+		div.insertAdjacentHTML('beforeend', spanHTML);
+		this.htmlDisplayCategory.appendChild(div);
+        return this;
+    }*/
 }

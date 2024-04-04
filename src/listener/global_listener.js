@@ -1,5 +1,5 @@
 function mouseDownToolBar(event) {
-	let block = getBlockFromId(event.target.textContent)
+	let block = getBlockFromId(event.target.parentElement.querySelector("img").id)
 	if (block === null)
 		return;
 	handBlock = block;

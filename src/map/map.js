@@ -1,5 +1,7 @@
 class Map {
     constructor() {
+        map = this;
+
         this.map = document.createElement("div");
         this.map.setAttribute("id", "map");
         document.body.prepend(this.map);

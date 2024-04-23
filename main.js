@@ -11,7 +11,7 @@ document.getElementsByClassName('buttonPlay')[0].addEventListener('click', funct
 });
 
 function initGame() {
-    map = new Map();
+    new Map();
     loadGlobalListeners();
 }
 

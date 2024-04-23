@@ -3,4 +3,6 @@ function mouseDownToolBar(event) {
 	if (block === null)
 		return;
 	handBlock = block;
+	console.log(handBlock.icon.src)
+	document.body.style.cursor = "url(" + handBlock.icon.src + "), auto";
 }

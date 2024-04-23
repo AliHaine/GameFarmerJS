@@ -5,6 +5,8 @@ class ElementStatic extends BlockElement {
 	}
 
 	setElementToSquare(square) {
+		if (map.isSquareContainMaxElement(square))
+			return;
 		square.appendChild(this.images[0].cloneNode(true));
 	}
 }

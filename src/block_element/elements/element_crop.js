@@ -22,27 +22,4 @@ class ElementCrop extends BlockElement {
 	#cropGrowthCalculation(stage) {
 		return (this.timeToGrowth * stage + (Math.random() * this.timeToGrowth)) * globalGrowthSpeed;
 	}
-
-	/*build() {
-		let div = document.createElement('div');
-		div.appendChild(this.icon);
-
-		let spanHTML = `<span class="txt">${this.displayName}</span>`;
-
-		div.insertAdjacentHTML('beforeend', spanHTML);
-		this.htmlDisplayCategory.appendChild(div);
-		return this;
-	}*/
-
-	/*setHtmlDisplayCategory(htmlDisplayCategory) {
-        this.htmlDisplayCategory = htmlDisplayCategory;
-        let div = document.createElement('div');
-		div.appendChild(this.icon);
-
-		let spanHTML = `<span class="txt">${this.displayName}</span>`;
-
-		div.insertAdjacentHTML('beforeend', spanHTML);
-		this.htmlDisplayCategory.appendChild(div);
-        return this;
-    }*/
 }

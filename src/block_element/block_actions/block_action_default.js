@@ -4,6 +4,5 @@ class BlockActionDefault extends BlockAction {
 		if (block.getResource() !== undefined)
 			block.getResource().addResourceToBar(block.getResourceNumber());
 		square.removeChild(square.querySelectorAll('img')[1]);
-
 	}
 }

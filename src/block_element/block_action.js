@@ -7,4 +7,8 @@ class BlockAction {
 	executor(square) {
 		throw new Error("This function need to be implemented");
 	}
+
+	executorLeft(square) {
+		throw new Error("This function need to be implemented");
+	}
 }

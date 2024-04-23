@@ -18,8 +18,16 @@ const BLOCK = {
 	TRUNK0: new ElementStatic([IMG.TRUNK0]),
 	TREE0: new ElementStatic([IMG.TREE0], new BlockActionPrune()),
 	TREE1: new ElementStatic([IMG.TREE1], new BlockActionPrune()),
+	FENCE_WOOD_0: new ElementStatic([IMG.FENCE_WOOD_0]),
+	FENCE_WOOD_1: new ElementStatic([IMG.FENCE_WOOD_1]),
+	FENCE_WOOD_2: new ElementStatic([IMG.FENCE_WOOD_2]),
+	FENCE_WOOD_3: new ElementStatic([IMG.FENCE_WOOD_3]),
+	FENCE_WOOD_4: new ElementStatic([IMG.FENCE_WOOD_4]),
+	FENCE_WOOD_5: new ElementStatic([IMG.FENCE_WOOD_5]),
+	FENCE_WOOD_6: new ElementStatic([IMG.FENCE_WOOD_6]),
+	FENCE_WOOD_7: new ElementStatic([IMG.FENCE_WOOD_7]),
+	FENCE_WOOD_8: new ElementStatic([IMG.FENCE_WOOD_8]),
 
-	FENCE_WOOD_CORNER: new ElementStatic([IMG.FENCE_WOOD_CORNER]),
 
 	MELON: new ElementCrop(IMG.MELON, "Melon", 5000),
 	WHEAT: new ElementCrop(IMG.WHEAT, "Wheat", 15000),
@@ -39,7 +47,15 @@ BLOCK.FLOWER2.setNaturalSpawnChance(2).setLootable(RESOURCE.SEED, 1);
 BLOCK.TRUNK0.setNaturalSpawnChance(10).setLootable(RESOURCE.WOOD, 2);
 BLOCK.TREE0.setNaturalSpawnChance(20).setLootable(RESOURCE.WOOD, 7).setBlockChild(BLOCK.TRUNK0);
 BLOCK.TREE1.setNaturalSpawnChance(20).setLootable(RESOURCE.WOOD, 7).setBlockChild(BLOCK.TRUNK0);
-BLOCK.FENCE_WOOD_CORNER.setLootable(RESOURCE.WOOD, 1).setHtmlDisplayCategory(TOOLBAR_CATEGORY.FENCE);
+BLOCK.FENCE_WOOD_0.setLootable(RESOURCE.WOOD, 1).setHtmlDisplayCategory(TOOLBAR_CATEGORY.FENCE);
+BLOCK.FENCE_WOOD_1.setLootable(RESOURCE.WOOD, 1).setHtmlDisplayCategory(TOOLBAR_CATEGORY.FENCE);
+BLOCK.FENCE_WOOD_2.setLootable(RESOURCE.WOOD, 1).setHtmlDisplayCategory(TOOLBAR_CATEGORY.FENCE);
+BLOCK.FENCE_WOOD_3.setLootable(RESOURCE.WOOD, 1).setHtmlDisplayCategory(TOOLBAR_CATEGORY.FENCE);
+BLOCK.FENCE_WOOD_4.setLootable(RESOURCE.WOOD, 1).setHtmlDisplayCategory(TOOLBAR_CATEGORY.FENCE);
+BLOCK.FENCE_WOOD_5.setLootable(RESOURCE.WOOD, 1).setHtmlDisplayCategory(TOOLBAR_CATEGORY.FENCE);
+BLOCK.FENCE_WOOD_6.setLootable(RESOURCE.WOOD, 1).setHtmlDisplayCategory(TOOLBAR_CATEGORY.FENCE);
+BLOCK.FENCE_WOOD_7.setLootable(RESOURCE.WOOD, 1).setHtmlDisplayCategory(TOOLBAR_CATEGORY.FENCE);
+BLOCK.FENCE_WOOD_8.setLootable(RESOURCE.WOOD, 1).setHtmlDisplayCategory(TOOLBAR_CATEGORY.FENCE);
 BLOCK.MELON.setLootable(RESOURCE.MELON, 1);
 BLOCK.WHEAT.setLootable(RESOURCE.WHEAT, 1).build();
 BLOCK.SUGARCANE.setLootable(RESOURCE.SUGARCANE, 1).build();

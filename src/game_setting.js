@@ -39,8 +39,8 @@ const BLOCK = {
 
 //Block specification
 
-BLOCK.PLANT0.setNaturalSpawnChance(75);
-BLOCK.ROCK0.setNaturalSpawnChance(30);
+BLOCK.PLANT0.setNaturalSpawnChance(75).setLootable(RESOURCE.LEAF);
+BLOCK.ROCK0.setNaturalSpawnChance(30).setLootable(RESOURCE.ROCK, 3);
 BLOCK.FLOWER0.setNaturalSpawnChance(2).setLootable(RESOURCE.SEED, 1);
 BLOCK.FLOWER1.setNaturalSpawnChance(2).setLootable(RESOURCE.SEED, 1);
 BLOCK.FLOWER2.setNaturalSpawnChance(2).setLootable(RESOURCE.SEED, 1);
@@ -56,8 +56,8 @@ BLOCK.FENCE_WOOD_5.setLootable(RESOURCE.WOOD, 1).setHtmlDisplayCategory(TOOLBAR_
 BLOCK.FENCE_WOOD_6.setLootable(RESOURCE.WOOD, 1).setHtmlDisplayCategory(TOOLBAR_CATEGORY.FENCE);
 BLOCK.FENCE_WOOD_7.setLootable(RESOURCE.WOOD, 1).setHtmlDisplayCategory(TOOLBAR_CATEGORY.FENCE);
 BLOCK.FENCE_WOOD_8.setLootable(RESOURCE.WOOD, 1).setHtmlDisplayCategory(TOOLBAR_CATEGORY.FENCE);
-BLOCK.MELON.setLootable(RESOURCE.MELON, 1);
-BLOCK.WHEAT.setLootable(RESOURCE.WHEAT, 1).build();
-BLOCK.SUGARCANE.setLootable(RESOURCE.SUGARCANE, 1).build();
-BLOCK.EGGPLANT.setLootable(RESOURCE.EGGPLANT, 1).build();
-BLOCK.CHILI.setLootable(RESOURCE.CHILI, 1).build();
+BLOCK.MELON.setLootable(RESOURCE.FRUIT, 5);
+BLOCK.WHEAT.setLootable(RESOURCE.FRUIT, 1).build();
+BLOCK.SUGARCANE.setLootable(RESOURCE.FRUIT, 2).build();
+BLOCK.EGGPLANT.setLootable(RESOURCE.FRUIT, 3).build();
+BLOCK.CHILI.setLootable(RESOURCE.FRUIT, 1).build();

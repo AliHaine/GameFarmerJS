@@ -40,6 +40,8 @@ const IMG = {
 }
 
 const IMG_ICON = {
+	FRUIT: newImage("assets/image/icon/fruit_icon.png", "fruit", 0),
+
 	SEED: newImage("assets/image/icon/seed_icon.png", "seed0", 0),
 	MELON: newImage("assets/image/icon/melon_icon.png", "melon", 0),
 	WHEAT: newImage("assets/image/icon/wheat_icon.png", "wheat", 0),
@@ -47,15 +49,16 @@ const IMG_ICON = {
 	EGGPLANT: newImage("assets/image/icon/eggplant_icon.png", "eggplant", 0),
 	CHILI: newImage("assets/image/icon/chili_icon.png", "chili", 0),
 
-	WOOD: newImage("assets/image/icon/wood_icon.png", "wood", 0)
+	WOOD: newImage("assets/image/icon/wood_icon.png", "wood", 0),
+	ROCK: newImage("assets/image/icon/rock_icon.png", "rock", 0),
+	LEAF: newImage("assets/image/icon/leaf_icon.png", "leaf", 0)
 }
 
 const RESOURCE = {
+	FRUIT: new Resource("Fruit", IMG_ICON.FRUIT),
 	SEED: new Resource("Seed", IMG_ICON.SEED),
-	MELON: new Resource("Melon", IMG_ICON.MELON),
-	WHEAT: new Resource("Wheat", IMG_ICON.WHEAT),
-	SUGARCANE: new Resource("Sugarcane", IMG_ICON.SUGARCANE),
-	EGGPLANT: new Resource("Eggplant", IMG_ICON.EGGPLANT),
-	CHILI: new Resource("Chili", IMG_ICON.CHILI),
-	WOOD: new Resource("Wood", IMG_ICON.WOOD)
+	ROCK: new Resource("Rock", IMG_ICON.ROCK),
+	WOOD: new Resource("Wood", IMG_ICON.WOOD),
+	LEAF: new Resource("Leaf", IMG_ICON.LEAF)
+
 }

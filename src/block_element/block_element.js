@@ -64,6 +64,10 @@ class BlockElement {
         return this.images[0];
     }
 
+    isGrown(number) {
+        return number === this.images.length - 1;
+    }
+
 
     build() {
 

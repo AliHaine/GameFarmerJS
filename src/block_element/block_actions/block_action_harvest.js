@@ -4,7 +4,10 @@ class BlockActionHarvest extends BlockAction {
 	}
 
 	executor(square) {
-		const block = getBlockFromId(square.querySelectorAll('img')[1].getAttribute("id"))
+		const img = square.querySelectorAll('img')[1];
+		const block = getBlockFromId(img.getAttribute("id"))
+		if (!block.isGrown(getImageNumber(img.getAttribute("src"))))
+			return;
 		block.getResource().addResourceToBar(block.getResourceNumber());
 		square.removeChild(square.querySelectorAll('img')[1]);
 		square.removeChild(square.querySelector('.ground'));

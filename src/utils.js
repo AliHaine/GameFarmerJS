@@ -46,3 +46,15 @@ function getPercent(value, percent) {
 function insertToStr(strTarget, strToInsert, index) {
     return strTarget.slice(0, index) + strToInsert + strTarget.slice(index);
 }
+
+
+/**
+ * Return the number of the image from the given path.
+ * For example, "assets/example/test1.png", it will return 1.
+ *
+ * @param {string} src - The image path.
+ * @returns {int} - The number of the image
+ */
+function getImageNumber(src) {
+    return parseInt(src.match(/\d/)[0])
+}

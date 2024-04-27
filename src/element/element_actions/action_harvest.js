@@ -1,4 +1,4 @@
-class BlockActionHarvest extends BlockAction {
+class ActionHarvest extends ElementAction {
 	constructor() {
 		super();
 	}

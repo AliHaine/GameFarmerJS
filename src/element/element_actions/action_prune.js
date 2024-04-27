@@ -1,4 +1,4 @@
-class BlockActionPrune extends BlockAction {
+class ActionPrune extends ElementAction {
 	constructor() {
 		super();
 	}

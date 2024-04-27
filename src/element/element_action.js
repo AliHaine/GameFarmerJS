@@ -1,6 +1,6 @@
-class BlockAction {
+class ElementAction {
 	constructor() {
-		if (this.constructor === BlockAction)
+		if (this.constructor === ElementAction)
 			throw new Error("Abstract classes can't be instantiated.");
 	}
 

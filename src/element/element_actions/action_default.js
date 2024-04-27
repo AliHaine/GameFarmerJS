@@ -1,4 +1,4 @@
-class BlockActionDefault extends BlockAction {
+class ActionDefault extends ElementAction {
 	executor(square) {
 		const block = getBlockFromId(square.querySelectorAll('img')[1].getAttribute("id"))
 		if (block.getResource() !== undefined)

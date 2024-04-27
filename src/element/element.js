@@ -1,6 +1,6 @@
-class BlockElement {
+class Element {
     constructor(images, blockAction) {
-        if (this.constructor === BlockElement)
+        if (this.constructor === Element)
             throw new Error("Abstract classes can't be instantiated.");
         this.images = images;
         this.blockAction = blockAction;
@@ -62,14 +62,5 @@ class BlockElement {
 
     getFirstImage() {
         return this.images[0];
-    }
-
-    isGrown(number) {
-        return number === this.images.length - 1;
-    }
-
-
-    build() {
-
     }
 }

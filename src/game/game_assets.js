@@ -41,24 +41,8 @@ const IMG = {
 
 const IMG_ICON = {
 	FRUIT: newImage("assets/image/icon/fruit_icon.png", "fruit", 0),
-
 	SEED: newImage("assets/image/icon/seed_icon.png", "seed0", 0),
-	MELON: newImage("assets/image/icon/melon_icon.png", "melon", 0),
-	WHEAT: newImage("assets/image/icon/wheat_icon.png", "wheat", 0),
-	SUGARCANE: newImage("assets/image/icon/sugarcane_icon.png", "sugarcane", 0),
-	EGGPLANT: newImage("assets/image/icon/eggplant_icon.png", "eggplant", 0),
-	CHILI: newImage("assets/image/icon/chili_icon.png", "chili", 0),
-
 	WOOD: newImage("assets/image/icon/wood_icon.png", "wood", 0),
 	ROCK: newImage("assets/image/icon/rock_icon.png", "rock", 0),
 	LEAF: newImage("assets/image/icon/leaf_icon.png", "leaf", 0)
-}
-
-const RESOURCE = {
-	FRUIT: new Resource("Fruit", IMG_ICON.FRUIT),
-	SEED: new Resource("Seed", IMG_ICON.SEED),
-	ROCK: new Resource("Rock", IMG_ICON.ROCK),
-	WOOD: new Resource("Wood", IMG_ICON.WOOD),
-	LEAF: new Resource("Leaf", IMG_ICON.LEAF)
-
 }

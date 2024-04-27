@@ -1,6 +1,7 @@
-class ElementStatic extends BlockElement {
-	constructor(images, blockAction = new BlockActionDefault()) {
+class ElementDefault extends Element {
+	constructor(images, blockAction = new ActionDefault(), resource, resourceNumber = 1) {
 		super(images, blockAction);
+		this.setLootable(resource, resourceNumber)
 		this.icon = images[0];
 	}
 

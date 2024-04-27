@@ -1,7 +1,8 @@
-class ElementCrop extends BlockElement {
-	constructor(images, displayName, timeToGrowth) {
-		super(images, new BlockActionHarvest());
+class ElementCrop extends Element {
+	constructor(images, displayName, timeToGrowth, resource, resourceNumber = 1) {
+		super(images, new ActionHarvest());
 		this.timeToGrowth = timeToGrowth;
+		this.setLootable(resource, resourceNumber)
 		this.icon = images[images.length - 1];
 		this.displayName = displayName;
 		this.setHtmlDisplayCategory(TOOLBAR_CATEGORY.CROP)
@@ -21,5 +22,9 @@ class ElementCrop extends BlockElement {
 
 	#cropGrowthCalculation(stage) {
 		return (this.timeToGrowth * stage + (Math.random() * this.timeToGrowth)) * globalGrowthSpeed;
+	}
+
+	isGrown(number) {
+		return number === this.images.length - 1;
 	}
 }

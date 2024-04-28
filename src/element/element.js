@@ -1,9 +1,9 @@
 class Element {
-    constructor(images, blockAction) {
+    constructor(images, elementAction) {
         if (this.constructor === Element)
             throw new Error("Abstract classes can't be instantiated.");
         this.images = images;
-        this.blockAction = blockAction;
+        this.blockAction = elementAction;
     }
 
     setIcon(icon) {

@@ -13,6 +13,9 @@ function mouseDownMap(event) {
 		 if (block.blockAction === undefined)
 			 return;
 		 block.blockAction.executor(square)
+		if (block.getResource() === undefined)
+			return;
+		 displayRightClick("+" + block.getResourceNumber(), block.getResource().icon, event.clientX + 40, event.clientY);
 	}
 }
 

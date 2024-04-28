@@ -2,7 +2,7 @@ class ElementDefault extends Element {
 	constructor(images, blockAction = new ActionDefault(), resource, resourceNumber = 1) {
 		super(images, blockAction);
 		this.setLootable(resource, resourceNumber)
-		this.icon = images[0];
+		this.setIcon(images[0]);
 	}
 
 	setElementToSquare(square) {

@@ -3,8 +3,8 @@ class ElementCrop extends Element {
 		super(images, new ActionHarvest());
 		this.timeToGrowth = timeToGrowth;
 		this.setLootable(resource, resourceNumber)
-		this.icon = images[images.length - 1];
-		this.displayName = displayName;
+		this.setIcon(images[images.length - 1]);
+		this.setDisplayName(displayName)
 		this.setHtmlDisplayCategory(TOOLBAR_CATEGORY.CROP)
 	}
 

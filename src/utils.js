@@ -47,7 +47,6 @@ function insertToStr(strTarget, strToInsert, index) {
     return strTarget.slice(0, index) + strToInsert + strTarget.slice(index);
 }
 
-
 /**
  * Return the number of the image from the given path.
  * For example, "assets/example/test1.png", it will return 1.
@@ -57,4 +56,47 @@ function insertToStr(strTarget, strToInsert, index) {
  */
 function getImageNumber(src) {
     return parseInt(src.match(/\d/)[0])
+}
+
+
+/**
+ * Display text and image at the defined position on right-click event.
+ *
+ * Create a new div with the provided text and image,
+ * positioned at the specified x and y coordinates.
+ *
+ * The ID of the created is formed by the calculation x + y of the coordinates.
+ *
+ * @param {string} text - The text to display.
+ * @param {HTMLImageElement} image - The image to display.
+ * @param {int} x - The position x of the elements
+ * @param {int} y - The position y of the elements
+ */
+function displayRightClick(text, image, x, y) {
+    const div = document.createElement("div")
+    div.setAttribute("id", (x + y).toString());
+    div.appendChild(image.cloneNode(true));
+    let spanHTML = `<span class="txtHarvest"> ${text}</span>`;
+
+    div.insertAdjacentHTML('beforeend', spanHTML);
+    div.style.position = "absolute";
+    div.style.left = x + "px";
+    div.style.top = y + "px";
+    div.style.display = "block";
+
+    document.body.appendChild(div);
+
+    displayRightClickAnimation(div);
+}
+
+function displayRightClickAnimation(element) {
+    let loopCount = 0;
+
+    const intervalId = setInterval(function() {
+        element.style.top = `${parseInt(element.style.top || 0) - 1}px`;
+        if (loopCount++ > 50) {
+            clearInterval(intervalId);
+            element.remove();
+        }
+    }, 10);
 }

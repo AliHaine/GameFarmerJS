@@ -1,6 +1,6 @@
 const globalSize = 32;
 const globalNaturalGeneration = 30;
-const globalGrowthSpeed = 1;
+const globalGrowthSpeed = 0.01;
 const mapHeight = 75;
 const mapWidth = 95;
 

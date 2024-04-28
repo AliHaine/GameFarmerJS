@@ -19,6 +19,15 @@ body {
 	margin: 0 auto;
 }
 
+.txtHarvest {
+	color: #00ff6e;
+	font-size: 22px;
+	font-weight: 500;
+	border-radius: 50px;
+	padding: 15px 2px;
+	flex-grow: 1;
+}
+
 .hover-ground:hover {
 	border-radius: 13px;
 }

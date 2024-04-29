@@ -32,7 +32,29 @@ body {
 	border-radius: 13px;
 }
 
-.buttonPlay {
+.menu {
+	height: 380px;
+	width: 350px;
+	background-color: #8842d5;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	position: absolute;
+	border-radius: 30px;
+}
+
+.menuItem {
+	margin: 10px;
+	display: flex;
+	flex-direction: column;
+	left: 50%;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	vertical-align: middle;
+}
+
+#buttonPlay {
 	border-radius: 8px;
 	border-style: none;
 	box-sizing: border-box;
@@ -50,9 +72,6 @@ body {
 	padding: 10px 16px;
     position: fixed;
     background-color: #8842d5;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 	text-align: center;
 	text-decoration: none;
 	transition: color 100ms;
@@ -60,7 +79,7 @@ body {
 	touch-action: manipulation;
 }
 
-.buttonPlay:hover,
-.buttonPlay:focus {
+#buttonPlay:hover,
+#buttonPlay:focus {
     background-color: #b580ed;
 }

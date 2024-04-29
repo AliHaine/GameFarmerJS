@@ -1,8 +1,8 @@
 const globalSize = 32;
-const globalNaturalGeneration = 30;
-const globalGrowthSpeed = 0.01;
-const mapHeight = 75;
-const mapWidth = 95;
+let globalNaturalGeneration;
+let globalGrowthSpeed;
+let mapHeight;
+let mapWidth;
 
 const RESOURCE = {
 	FRUIT: new Resource("Fruit", IMG_ICON.FRUIT),
@@ -37,8 +37,8 @@ BLOCK.FENCE_WOOD_6 = (new ElementDefault([IMG.FENCE_WOOD_6])).setLootable(RESOUR
 BLOCK.FENCE_WOOD_7 = (new ElementDefault([IMG.FENCE_WOOD_7])).setLootable(RESOURCE.WOOD).setHtmlDisplayCategory(TOOLBAR_CATEGORY.FENCE);
 BLOCK.FENCE_WOOD_8 = (new ElementDefault([IMG.FENCE_WOOD_8])).setLootable(RESOURCE.WOOD).setHtmlDisplayCategory(TOOLBAR_CATEGORY.FENCE);
 
-BLOCK.MELON = new ElementCrop(IMG.MELON, "Melon", 5000, RESOURCE.FRUIT, 5);
-BLOCK.WHEAT = new ElementCrop(IMG.WHEAT, "Wheat", 15000, RESOURCE.FRUIT);
-BLOCK.SUGARCANE = new ElementCrop(IMG.SUGARCANE, "Sugarcane", 13000, RESOURCE.FRUIT, 2);
-BLOCK.EGGPLANT = new ElementCrop(IMG.EGGPLANT, "Eggplant", 3000, RESOURCE.FRUIT, 3);
-BLOCK.CHILI = new ElementCrop(IMG.CHILI, "Chili", 7000, RESOURCE.FRUIT, 4);
+BLOCK.MELON = new ElementCrop(IMG.MELON, "Melon", 1000, RESOURCE.FRUIT);
+BLOCK.WHEAT = new ElementCrop(IMG.WHEAT, "Wheat", 1500, RESOURCE.FRUIT, 5);
+BLOCK.SUGARCANE = new ElementCrop(IMG.SUGARCANE, "Sugarcane", 1300, RESOURCE.FRUIT, 3);
+BLOCK.EGGPLANT = new ElementCrop(IMG.EGGPLANT, "Eggplant", 300, RESOURCE.FRUIT);
+BLOCK.CHILI = new ElementCrop(IMG.CHILI, "Chili", 700, RESOURCE.FRUIT, 2);

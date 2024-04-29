@@ -1,0 +1,139 @@
+.menu {
+	height:400px;
+	width: 250px;
+	background-color: #8842d5;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	position: absolute;
+	border-radius: 30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center; /* Horizontally center the items */
+	align-items: center; /* Vertically center the items */
+	font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	font-weight: 500;
+	color: #FFFFFF;
+}
+
+.menuItem {
+	margin: 5px;
+}
+
+.slider {
+	-webkit-appearance: none;
+	width: 75%;
+	height: 15px;
+	border-radius: 5px;
+	background: #d3d3d3;
+	outline: none;
+	opacity: 0.7;
+	-webkit-transition: .2s;
+	transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	background: #b580ed;
+}
+
+.slider::-moz-range-thumb {
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	background: #b580ed;
+}
+
+/* Customize the label (the container) */
+.container {
+	position: relative;
+	padding-left: 5%;
+	margin-bottom: 12px;
+	cursor: pointer;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 15px;
+	width: 15px;
+	background-color: #ccc;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+	background-color: #b580ed;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+	background-color: #b580ed;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+	content: "";
+	display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+	display: block;
+	margin-left: 4px;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+	left: 19px;
+	top: 5px;
+	width: 4px;
+	height: 9px;
+	border: solid white;
+	border-width: 0 3px 3px 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+#buttonPlay {
+	border-radius: 8px;
+	border-style: none;
+	box-sizing: border-box;
+	color: #FFFFFF;
+	cursor: pointer;
+	font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	font-weight: 500;
+	height: 40px;
+	line-height: 20px;
+	list-style: none;
+	margin: 0;
+	outline: none;
+	padding: 10px 16px;
+	background-color: #b580ed;
+	text-align: center;
+	text-decoration: none;
+	transition: color 100ms;
+	vertical-align: baseline;
+	touch-action: manipulation;
+}
+
+#buttonPlay:hover,
+#buttonPlay:focus {
+	color: #8842d5;
+}

@@ -1,28 +1,26 @@
 function mouseDownMap(event) {
 	const mapRect = map.map.getBoundingClientRect();
-	const x = Math.floor((event.clientX - mapRect.left) / globalSize);
-	const y = Math.floor((event.clientY - mapRect.top) / globalSize);
+	const x = Math.floor((player.getMouseX() - mapRect.left) / globalSize);
+	const y = Math.floor((player.getMouseY() - mapRect.top) / globalSize);
 	if (map.isBorderOfMap(y, x))
 		return;
 
 	const square = map.getSquare(x, y);
-	if (event.button === 0 && handBlock != null)
-		handBlock.setElementToSquare(square);
+	if (event.button === 0 && player.getHandBlock() != null)
+		player.getHandBlock().setElementToSquare(square);
 	else if (event.button === 2) {
 		const block = map.getBlockFromSquare(square);
 		 if (block.blockAction === undefined)
 			 return;
 		 block.blockAction.executor(square)
-		if (block.getResource() === undefined)
-			return;
-		 displayRightClick("+" + block.getResourceNumber(), block.getResource().icon, event.clientX + 40, event.clientY);
 	}
 }
 
 function mouseMoveEvent(event) {
+	player.setMouseXY(event.clientX, event.clientY);
 	const mapRect = map.map.getBoundingClientRect();
-	const x = Math.floor((event.clientX - mapRect.left) / globalSize);
-	const y = Math.floor((event.clientY - mapRect.top) / globalSize);
+	const x = Math.floor((player.getMouseX() - mapRect.left) / globalSize);
+	const y = Math.floor((player.getMouseY() - mapRect.top) / globalSize);
 	const square = map.getSquare(x, y);
 	if (map.isBorderOfMap(y, x))
 		return;

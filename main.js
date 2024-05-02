@@ -1,6 +1,5 @@
 let map;
-let handBlock = null;
-
+const player = new Player();
 
 document.getElementById('buttonPlay').addEventListener('click', function() {
 
@@ -42,5 +41,4 @@ function defineGameSettings(element) {
     SOUND.DEFAULT_SOUND.volume = 0.2;
     SOUND.DEFAULT_SOUND.loop = true;
     SOUND.DEFAULT_SOUND.play();
-    console.log("playe")
 }

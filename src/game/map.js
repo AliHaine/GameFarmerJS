@@ -113,4 +113,16 @@ class Map {
     isSquareContainMaxElement(square) {
         return square.querySelectorAll('img').length > 1;
     }
+
+    /**
+     * Returns the grid coordinates (x, y) of the mouse pointer relative to the game map.
+     *
+     * @returns {int[2]} An array containing the x and y coordinates.
+     */
+    getMapMouseXY() {
+        const mapRect = map.map.getBoundingClientRect();
+        const x = Math.floor((player.getMouseX() - mapRect.left) / globalSize);
+        const y = Math.floor((player.getMouseY() - mapRect.top) / globalSize);
+        return [x, y];
+    }
 }

@@ -1,7 +1,5 @@
 function mouseDownMap(event) {
-	const mapRect = map.map.getBoundingClientRect();
-	const x = Math.floor((player.getMouseX() - mapRect.left) / globalSize);
-	const y = Math.floor((player.getMouseY() - mapRect.top) / globalSize);
+	const [x, y] = map.getMapMouseXY();
 	if (map.isBorderOfMap(y, x))
 		return;
 
@@ -18,13 +16,10 @@ function mouseDownMap(event) {
 
 function mouseMoveEvent(event) {
 	player.setMouseXY(event.clientX, event.clientY);
-	const mapRect = map.map.getBoundingClientRect();
-	const x = Math.floor((player.getMouseX() - mapRect.left) / globalSize);
-	const y = Math.floor((player.getMouseY() - mapRect.top) / globalSize);
+	const [x, y] = map.getMapMouseXY();
 	const square = map.getSquare(x, y);
 	if (map.isBorderOfMap(y, x))
 		return;
-
 	if (map.hoveredSquare === square)
 		return;
 	if (map.hoveredSquare != null)

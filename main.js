@@ -2,7 +2,6 @@ let map;
 const player = new Player();
 
 document.getElementById('buttonPlay').addEventListener('click', function() {
-
     defineGameSettings(document.getElementsByTagName("input"));
     document.getElementsByClassName("menu")[0].remove();
     initGame();
@@ -13,12 +12,19 @@ function initGame() {
     loadGlobalListeners();
 }
 
+function test(event) {
+    const target = event.target.closest('.left-item');
+
+    MENU.SETTINGS.style.display = MENU.SETTINGS.style.display === "none" ? "flex" : "none";
+}
+
 function loadGlobalListeners() {
     document.addEventListener('contextmenu', (event) => {
         event.preventDefault();
     })
 
     document.getElementById('toolbar').addEventListener('mousedown', mouseDownToolBar);
+    document.getElementsByClassName("left-item")[0].addEventListener('mousedown', test)
 }
 
 function getBlockFromId(id) {

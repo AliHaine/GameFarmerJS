@@ -36,7 +36,19 @@
             <span class="checkmark"></span>
         </label>
 
-        <button id="buttonPlay" class="menuItem">Play</button>
+        <button id="buttonPlay" class="menuItem button">Play</button>
+    </div>
+
+    <div class="menu" style="display: none">
+        <h1>Settings</h1>
+
+        <output class="menuItem">Sound volume</output>
+        <input class="menuItem slider" type="range" step="0.1" min="0.1" max="1" value="0.2">
+
+        <button id="buttonSettingsApply" class="menuItem button">Apply</button>
+
+
+        <a href="https://github.com/AliHaine/GameFarmerJS" target="_blank">Project GitHub </a>
     </div>
 
     <nav id="ressourcebar">
@@ -45,14 +57,14 @@
 
     <nav id="toolbar">
         <ul>
-            <li class="left-item"><img src="assets/image/icon/settings_icon.png" alt="Settings"><span class="txt">Settings</span></li>
+            <li class="left-item" id="buttonSettings"><img src="assets/image/icon/settings_icon.png" alt="Settings"><span class="txt">Settings</span></li>
             <li class="center-items">
                 <div class="dropup">
                     <img src="assets/image/icon/crops_icon.png" alt="Crops icon">
                     <span class="txt">Crops</span>
                     <div id="dropup-crop" class="dropup-content"></div>
                 </div>
-                <div><img src="assets/image/icon/rock_icon.png" alt="Static icon"><span class="txt">Static</span></div>
+                <div><img src="assets/image/icon/sheep_icon.png" alt="Animal icon"><span class="txt">Animals</span></div>
                 <div class="dropup" >
                     <img src="assets/image/icon/fence_icon.png" alt="Fence icon">
                     <span class="txt">Fence</span>
@@ -65,7 +77,7 @@
 
     <script src="src/game/player.js"></script>
     <script src="src/utils.js"></script>
-    <script src="src/navbar/resource.js"></script>
+    <script src="src/canvas/resource.js"></script>
     <script src="src/game/game_assets.js"></script>
 
     <script src="src/element/element_action.js"></script>

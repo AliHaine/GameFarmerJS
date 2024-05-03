@@ -4,6 +4,10 @@ let globalGrowthSpeed;
 let mapHeight;
 let mapWidth;
 
+const MENU = {
+	SETTINGS: document.getElementsByClassName("menu")[1]
+}
+
 const RESOURCE = {
 	FRUIT: new Resource("Fruit", IMG_ICON.FRUIT),
 	SEED: new Resource("Seed", IMG_ICON.SEED),

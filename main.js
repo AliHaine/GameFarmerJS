@@ -9,22 +9,20 @@ document.getElementById('buttonPlay').addEventListener('click', function() {
 
 function initGame() {
     new Map();
-    loadGlobalListeners();
+    loadListeners();
 }
 
-function test(event) {
-    const target = event.target.closest('.left-item');
-
-    MENU.SETTINGS.style.display = MENU.SETTINGS.style.display === "none" ? "flex" : "none";
-}
-
-function loadGlobalListeners() {
+function loadListeners() {
     document.addEventListener('contextmenu', (event) => {
         event.preventDefault();
     })
 
-    document.getElementById('toolbar').addEventListener('mousedown', mouseDownToolBar);
-    document.getElementsByClassName("left-item")[0].addEventListener('mousedown', test)
+    document.addEventListener("mousedown", mouseDownMap);
+    //document.getElementById("toolbar").addEventListener("mousedown", mouseDownToolBar);
+    document.getElementsByClassName("left-item")[0].addEventListener("mousedown", mouseDownToolBarButton)
+
+    TOOLBAR_CATEGORY.CROP.addEventListener("mousedown", mouseDownToolBar);
+    TOOLBAR_CATEGORY.FENCE.addEventListener("mousedown", mouseDownToolBar);
 }
 
 function getBlockFromId(id) {

@@ -17,8 +17,7 @@ class Map {
 
         this.mapGenerator();
 
-        this.map.addEventListener('mousedown', mouseDownMap);
-        this.map.addEventListener('mousemove', mouseMoveEvent);
+        this.map.addEventListener('mousemove', mouseMoveMap);
     }
 
     addSquare(square) {

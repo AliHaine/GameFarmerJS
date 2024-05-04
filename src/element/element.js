@@ -3,7 +3,7 @@ class Element {
         if (this.constructor === Element)
             throw new Error("Abstract classes can't be instantiated.");
         this.images = images;
-        this.blockAction = elementAction;
+        this.elementAction = elementAction;
     }
 
     setIcon(icon) {
@@ -62,5 +62,9 @@ class Element {
 
     getFirstImage() {
         return this.images[0];
+    }
+
+    getElementAction() {
+        return this.elementAction;
     }
 }

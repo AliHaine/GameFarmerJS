@@ -25,22 +25,22 @@ function loadListeners() {
     TOOLBAR_CATEGORY.FENCE.addEventListener("mousedown", mouseDownToolBar);
 }
 
-function getBlockFromId(id) {
-    for (const blockName in BLOCK) {
-        const block = BLOCK[blockName];
-        if (block.images[0].getAttribute("id").toUpperCase() === id.toUpperCase())
-            return block;
+function getElementFromId(id) {
+    for (const elementName in ELEMENT) {
+        const element = ELEMENT[elementName];
+        if (element.images[0].getAttribute("id").toUpperCase() === id.toUpperCase())
+            return element;
     }
     return null;
 }
 
-function defineGameSettings(element) {
-    mapHeight = element[0].value;
-    mapWidth = element[1].value;
-    globalGrowthSpeed = element[2].value;
-    globalNaturalGeneration = element[3].value;
+function defineGameSettings(inputs_value) {
+    mapHeight = inputs_value[0].value;
+    mapWidth = inputs_value[1].value;
+    globalGrowthSpeed = inputs_value[2].value;
+    globalNaturalGeneration = inputs_value[3].value;
 
-    if (!element[4].checked)
+    if (!inputs_value[4].checked)
         return
     SOUND.DEFAULT_SOUND.volume = 0.2;
     SOUND.DEFAULT_SOUND.loop = true;

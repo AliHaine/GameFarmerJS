@@ -26,12 +26,12 @@ class Map {
 
     mapGenerator() {
         const start = performance.now();
-        const naturalSpawnableBlock = [];
-        for (const blockName in BLOCK) {
-            const block = BLOCK[blockName];
-            if (block.naturalSpawnChance === undefined)
+        const naturalSpawnableElement = [];
+        for (const elementName in ELEMENT) {
+            const element = ELEMENT[elementName];
+            if (element.naturalSpawnChance === undefined)
                 continue;
-            naturalSpawnableBlock.push(block);
+            naturalSpawnableElement.push(element);
         }
         for (let x = 0; x < this.numRows; x++) {
             for (let y = 0; y < this.squaresPerRow; y++) {
@@ -44,7 +44,7 @@ class Map {
                 else {
                     square.appendChild(IMG.GRASS.cloneNode(true));
                     if (Math.random() * 100 <= globalNaturalGeneration) {
-                        this.#generateElement(square, [...naturalSpawnableBlock]);
+                        this.#generateElement(square, [...naturalSpawnableElement]);
                     }
                 }
                 const img = square.querySelector('img');
@@ -55,20 +55,20 @@ class Map {
         console.log(`Time to load the map: ${performance.now() - start} ms`);
     }
 
-    #generateElement(square, naturalSpawnableBlock) {
+    #generateElement(square, naturalSpawnableElement) {
         /*let randValue = Math.floor(Math.random() * 100);
-        while (naturalSpawnableBlock.length > 0) {
-            const selector = Math.floor(Math.random() * naturalSpawnableBlock.length);
-            let block = naturalSpawnableBlock[selector]
+        while (naturalSpawnableElement.length > 0) {
+            const selector = Math.floor(Math.random() * naturalSpawnableElement.length);
+            let block = naturalSpawnableElement[selector]
             if (randValue <= block.naturalSpawnChance) {
                 block.setBlockToSquare(square)
                 break;
             }
-            naturalSpawnableBlock.splice(selector, 1);
+            naturalSpawnableElement.splice(selector, 1);
         }*/
 
         while (true) {
-            let block = naturalSpawnableBlock[Math.floor(Math.random() * naturalSpawnableBlock.length)]
+            let block = naturalSpawnableElement[Math.floor(Math.random() * naturalSpawnableElement.length)]
             let randValue = Math.floor(Math.random() * 100);
             if (randValue <= block.naturalSpawnChance) {
                 block.setElementToSquare(square)
@@ -104,9 +104,9 @@ class Map {
         return document.querySelectorAll('.square')[this.getSquareIndex(x, y)];
     }
 
-    getBlockFromSquare(square) {
+    getElementFromSquare(square) {
         const nodes = square.querySelectorAll('img');
-        return getBlockFromId(nodes[nodes.length - 1].getAttribute('id'));
+        return getElementFromId(nodes[nodes.length - 1].getAttribute('id'));
     }
 
     isSquareContainMaxElement(square) {

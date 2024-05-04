@@ -5,7 +5,7 @@ class ActionHarvest extends ElementAction {
 
 	executor(square) {
 		const img = square.querySelectorAll('img')[1];
-		const block = getBlockFromId(img.getAttribute("id"))
+		const block = getElementFromId(img.getAttribute("id"))
 		if (!block.isGrown(getImageNumber(img.getAttribute("src"))))
 			return;
 		block.getResource().addResourceToBar(block.getResourceNumber());

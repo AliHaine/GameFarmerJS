@@ -2,11 +2,11 @@ class Player {
     constructor() {
         this.mouseX = 0;
         this.mouseY = 0;
-        this.handBlock = null;
+        this.handElement = null;
     }
 
-    getHandBlock() {
-        return this.handBlock;
+    getHandElement() {
+        return this.handElement;
     }
 
     getMouseX() {
@@ -17,8 +17,8 @@ class Player {
         return this.mouseY;
     }
 
-    setHandBlock(handBlock) {
-        this.handBlock = handBlock;
+    setHandElement(handElement) {
+        this.handElement = handElement;
     }
 
     setMouseXY(x, y) {

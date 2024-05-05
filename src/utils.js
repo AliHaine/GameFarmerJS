@@ -21,11 +21,10 @@ function newImage(imagePath, id, z, className = "none") {
  *
  * @param {string} imagePath - The base image path.
  * @param {string} id - The id to set as an HTML attribute to the images.
- * @param {int} z - The Z-index value for the images.
  * @param {int} number - The number of images to load.
  * @returns {HTMLImageElement[]} An array of HTMLImageElement objects representing the loaded images.
  */
-function newImages(imagePath, id, z, number) {
+function newImages(imagePath, id, number) {
     let imgs = [];
     let indexOfPoint = imagePath.lastIndexOf('.');
 
@@ -33,7 +32,6 @@ function newImages(imagePath, id, z, number) {
         const img = new Image();
         img.src = insertToStr(imagePath, i, indexOfPoint);
         img.setAttribute('id', id);
-        img.style.zIndex = z;
         imgs.push(img);
     }
     return imgs;

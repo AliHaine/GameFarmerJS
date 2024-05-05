@@ -1,14 +1,9 @@
 class Element {
-    constructor(images, elementAction) {
+    constructor(image, elementAction) {
         if (this.constructor === Element)
             throw new Error("Abstract classes can't be instantiated.");
-        this.images = images;
+        this.image = image;
         this.elementAction = elementAction;
-    }
-
-    setIcon(icon) {
-        this.icon = icon;
-        return this;
     }
 
     setNaturalSpawnChance(naturalSpawnChance) {
@@ -34,7 +29,7 @@ class Element {
     setHtmlDisplayCategory(htmlDisplayCategory) {
         this.htmlDisplayCategory = htmlDisplayCategory;
         let div = document.createElement('div');
-		div.appendChild(this.icon);
+		div.appendChild(this.image);
 
 		let spanHTML = `<span class="txt">${this.displayName}</span>`;
 
@@ -60,11 +55,19 @@ class Element {
         return this.blockChild;
     }
 
-    getFirstImage() {
-        return this.images[0];
+    getImage() {
+        return this.image;
     }
 
     getElementAction() {
         return this.elementAction;
+    }
+
+    getElementId() {
+        return this.image.getAttribute("id");
+    }
+
+    getElementImageSrc() {
+        return this.image.getAttribute("src");
     }
 }

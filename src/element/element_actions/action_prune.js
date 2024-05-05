@@ -8,6 +8,6 @@ class ActionPrune extends ElementAction {
 		block.getResource().addResourceToBar(block.getResourceNumber());
 		displayRightClick("+" + block.getResourceNumber(), block.getResource().icon, player.getMouseX() + 40, player.getMouseY());
 		square.removeChild(square.querySelectorAll('img')[1]);
-		square.appendChild(block.getBlockChild().getFirstImage().cloneNode(true));
+		square.appendChild(block.getBlockChild().getImage().cloneNode(true));
 	}
 }

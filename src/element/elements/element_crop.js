@@ -1,9 +1,9 @@
 class ElementCrop extends Element {
-	constructor(images, displayName, timeToGrowth, resource, resourceNumber = 1) {
-		super(images, new ActionHarvest());
-		this.timeToGrowth = timeToGrowth;
+	constructor(image, displayName, timeToGrow, resource, resourceNumber = 1) {
+		super(image, new ActionHarvest());
+		this.timeToGrowth = timeToGrow;
 		this.setLootable(resource, resourceNumber)
-		this.setIcon(images[images.length - 1]);
+		this.stageImage = this.setImageStage();
 		this.setDisplayName(displayName)
 		this.setHtmlDisplayCategory(TOOLBAR_CATEGORY.CROP)
 	}
@@ -11,11 +11,11 @@ class ElementCrop extends Element {
 	setElementToSquare(square) {
 		if (map.isSquareContainMaxElement(square) || !square.querySelector('img#ground_farm'))
 			return;
-		square.appendChild(this.images[0].cloneNode(true));
-		for (let i= 1; i <= this.images.length - 1; i++) {
+		square.appendChild(this.stageImage[0].cloneNode(true));
+		for (let i= 1; i <= this.stageImage.length - 1; i++) {
 			setTimeout(() => {
 				square.removeChild(square.querySelectorAll('img')[1]);
-				square.appendChild(this.images[i].cloneNode(true));
+				square.appendChild(this.stageImage[i].cloneNode(true));
 			}, this.#cropGrowthCalculation(i));
 		}
 	}
@@ -25,6 +25,14 @@ class ElementCrop extends Element {
 	}
 
 	isGrown(number) {
-		return number === this.images.length - 1;
+		return number === this.stageImage.length - 1;
+	}
+
+	setImageStage() {
+		const number = getImageNumber(this.image.getAttribute("src"));
+		const path = this.getElementImageSrc().replace(/[0-9]/, "");
+		let stageImageTmp = newImages(path, this.getElementId(), number);
+		stageImageTmp.push(this.image);
+		return stageImageTmp;
 	}
 }

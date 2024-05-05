@@ -32,11 +32,11 @@ const IMG = {
 	FENCE_WOOD_7: newImage("assets/image/fence/fence_wood_7.png", "fence_wood_7", 1),
 	FENCE_WOOD_8: newImage("assets/image/fence/fence_wood_8.png", "fence_wood_8", 1),
 
-	MELON: newImages("assets/image/crops/melon.png", "melon", 1, 7),
-	WHEAT: newImages("assets/image/crops/wheat.png", "wheat", 1, 7),
-	SUGARCANE: newImages("assets/image/crops/sugarcane.png", "sugarcane", 1, 7),
-	EGGPLANT: newImages("assets/image/crops/eggplant.png", "eggplant", 1, 7),
-	CHILI: newImages("assets/image/crops/chili.png", "chili", 1, 7)
+	MELON: newImage("assets/image/crops/melon6.png", "melon", 1),
+	WHEAT: newImage("assets/image/crops/wheat6.png", "wheat", 1),
+	SUGARCANE: newImage("assets/image/crops/sugarcane6.png", "sugarcane", 1),
+	EGGPLANT: newImage("assets/image/crops/eggplant6.png", "eggplant", 1),
+	CHILI: newImage("assets/image/crops/chili6.png", "chili", 1)
 }
 
 const IMG_ICON = {

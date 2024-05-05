@@ -4,7 +4,7 @@ function mouseDownToolBar(event) {
 	if (element === null)
 		return;
 	player.setHandElement(element)
-	document.body.style.cursor = "url(" + player.getHandElement().icon.src + "), auto";
+	document.body.style.cursor = "url(" + player.getHandElement().getElementImageSrc() + "), auto";
 }
 
 function mouseDownMap(event) {

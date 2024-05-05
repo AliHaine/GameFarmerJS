@@ -18,7 +18,6 @@ function loadListeners() {
     })
 
     document.addEventListener("mousedown", mouseDownMap);
-    //document.getElementById("toolbar").addEventListener("mousedown", mouseDownToolBar);
     document.getElementsByClassName("left-item")[0].addEventListener("mousedown", mouseDownToolBarButton)
 
     TOOLBAR_CATEGORY.CROP.addEventListener("mousedown", mouseDownToolBar);
@@ -28,7 +27,7 @@ function loadListeners() {
 function getElementFromId(id) {
     for (const elementName in ELEMENT) {
         const element = ELEMENT[elementName];
-        if (element.images[0].getAttribute("id").toUpperCase() === id.toUpperCase())
+        if (element.getElementId().toUpperCase() === id.toUpperCase())
             return element;
     }
     return null;

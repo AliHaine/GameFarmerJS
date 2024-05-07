@@ -16,8 +16,6 @@ class Map {
         this.hoveredSquare = null;
 
         this.mapGenerator();
-
-        this.map.addEventListener('mousemove', mouseMoveMap);
     }
 
     addSquare(square) {

@@ -66,10 +66,10 @@ class Map {
         }*/
 
         while (true) {
-            let block = naturalSpawnableElement[Math.floor(Math.random() * naturalSpawnableElement.length)]
+            let block = naturalSpawnableElement[Math.floor(Math.random() * naturalSpawnableElement.length)];
             let randValue = Math.floor(Math.random() * 100);
             if (randValue <= block.naturalSpawnChance) {
-                block.setElementToSquare(square)
+                block.setElementToSquare(square);
                 break;
             }
         }
@@ -77,11 +77,11 @@ class Map {
 
     #isCorner(x, y) {
         return x === 0 && y === 0 || x === 0 && y === (this.squaresPerRow - 1) ||
-            y === 0 && x === (this.numRows - 1) || x === (this.numRows - 1) && y === (this.squaresPerRow - 1)
+            y === 0 && x === (this.numRows - 1) || x === (this.numRows - 1) && y === (this.squaresPerRow - 1);
     }
 
     isBorderOfMap(x, y) {
-        return x <= 0 || y <= 0 || x >= (this.numRows - 1) || y >= (this.squaresPerRow - 1)
+        return x <= 0 || y <= 0 || x >= (this.numRows - 1) || y >= (this.squaresPerRow - 1);
     }
 
     #rotateCalculation(x, y) {

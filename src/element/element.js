@@ -26,14 +26,20 @@ class Element {
         throw new Error("This function need to be implemented");
     }
 
+    setElementConditions(square) {
+        return !(map.isSquareContainMaxElement(square) || (!infiniteResources && player.getHandElementQuantity() <= 0));
+    }
+
     setHtmlDisplayCategory(htmlDisplayCategory) {
         this.htmlDisplayCategory = htmlDisplayCategory;
         let div = document.createElement('div');
 		div.appendChild(this.image);
 
-		let spanHTML = `<span class="txt">${this.displayName}</span>`;
+		let spanName = `<span class="txt">${this.displayName}</span>`;
+        let spanNumber = `<span class="txtNumber">0</span>`;
 
-		div.insertAdjacentHTML('beforeend', spanHTML);
+		div.insertAdjacentHTML('beforeend', spanName);
+        div.insertAdjacentHTML('beforeend', spanNumber);
 		this.htmlDisplayCategory.appendChild(div);
         return this;
     }

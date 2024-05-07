@@ -9,7 +9,7 @@ class ElementCrop extends Element {
 	}
 
 	setElementToSquare(square) {
-		if (map.isSquareContainMaxElement(square) || !square.querySelector('img#ground_farm'))
+		if (!this.setElementConditions(square) || !square.querySelector('img#ground_farm'))
 			return;
 		square.appendChild(this.stageImage[0].cloneNode(true));
 		for (let i= 1; i <= this.stageImage.length - 1; i++) {

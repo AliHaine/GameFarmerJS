@@ -20,13 +20,18 @@
     display: flex;
     align-items: center;
     min-height: 50px;
-    min-width: 140px;
+    min-width: 159px;
 }
 
 #toolbar li .txt {
     color: white;
-    padding: 2px 2px;
+    padding: 2px;
     flex-grow: 1;
+}
+
+#toolbar li .txtNumber {
+    color: white;
+    padding: 15px;
 }
 
 #toolbar img {

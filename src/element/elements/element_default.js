@@ -5,7 +5,7 @@ class ElementDefault extends Element {
 	}
 
 	setElementToSquare(square) {
-		if (map.isSquareContainMaxElement(square))
+		if (!this.setElementConditions(square))
 			return;
 		square.appendChild(this.image.cloneNode(true));
 	}

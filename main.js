@@ -39,6 +39,7 @@ function defineGameSettings(inputs_value) {
     mapWidth = inputs_value[1].value;
     globalGrowthSpeed = inputs_value[2].value;
     globalNaturalGeneration = inputs_value[3].value;
+    infiniteResources = inputs_value[5].checked;
 
     if (!inputs_value[4].checked)
         return

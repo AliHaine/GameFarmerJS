@@ -4,6 +4,8 @@ function mouseDownToolBar(event) {
 	if (element === null)
 		return;
 	player.setHandElement(element)
+	const quantity = target.getElementsByClassName("txtNumber")[0].textContent;
+	player.setHandElementQuantity(quantity)
 	document.body.style.cursor = "url(" + player.getHandElement().getElementImageSrc() + "), auto";
 }
 

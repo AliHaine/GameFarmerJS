@@ -3,6 +3,7 @@ let globalNaturalGeneration;
 let globalGrowthSpeed;
 let mapHeight;
 let mapWidth;
+let infiniteResources;
 
 const MENU = {
 	SETTINGS: document.getElementsByClassName("menu")[1]

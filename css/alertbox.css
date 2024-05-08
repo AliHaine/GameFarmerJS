@@ -1,0 +1,30 @@
+/* From https://www.w3schools.com/howto/howto_js_alert.asp */
+
+/* The alert message box */
+/* Modified to be at the center */
+.alert {
+    position: fixed;
+    top: 150px;
+    padding: 20px;
+    background-color: #8842d5; /* Red */
+    color: white;
+    margin-left: 50%;
+    transform: translate(-50%,0)
+}
+
+/* The close button */
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+    color: #b580ed;
+}

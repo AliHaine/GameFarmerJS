@@ -3,13 +3,17 @@ function mouseDownToolBar(event) {
 	const element = getElementFromId(target.getElementsByTagName("img")[0].id);
 	if (element === null)
 		return;
-	player.setHandElement(element)
 	const quantity = target.getElementsByClassName("txtNumber")[0].textContent;
+	if (quantity <= 0 && !infiniteResources)
+		return displayMessageToAlertBox(ENG_LANG.NO_ENOUGH_RESOURCE);
+	player.setHandElement(element)
 	player.setHandElementQuantity(quantity)
 	document.body.style.cursor = "url(" + player.getHandElement().getElementImageSrc() + "), auto";
 }
 
 function mouseDownMap(event) {
+	if (player.isMenuActive())
+		return;
 	const [x, y] = map.getMapMouseXY();
 	if (map.isBorderOfMap(y, x))
 		return;
@@ -29,10 +33,13 @@ function mouseDownToolBarButton(event) {
 	const target = event.target.closest('.left-item');
 
 	MENU.SETTINGS.style.display = MENU.SETTINGS.style.display === "none" ? "flex" : "none";
+	player.toggleMenuActive();
 }
 
 function mouseMoveMap(event) {
 	player.setMouseXY(event.clientX, event.clientY);
+	if (player.isMenuActive())
+		return;
 	const [x, y] = map.getMapMouseXY();
 	const square = map.getSquare(x, y);
 	if (map.isBorderOfMap(y, x)) {

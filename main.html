@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/toolbar.css">
     <link rel="stylesheet" href="css/ressourcebar.css">
     <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/alertbox.css">
     <link rel="icon" type="image/png" href="assets/image/icon/favicon.png" />
 
 
@@ -72,6 +73,8 @@
         <ul></ul>
     </nav>
 
+    <div class="alert" id="alertbox" style="display: none" onclick="style.display='none';"></div>
+
     <nav id="toolbar">
         <ul>
             <li class="left-item" id="buttonSettings"><img src="assets/image/icon/settings_icon.png" alt="Settings"><span class="txt">Settings</span></li>
@@ -94,8 +97,9 @@
 
     <script src="src/game/player.js"></script>
     <script src="src/utils.js"></script>
-    <script src="src/canvas/resource.js"></script>
-    <script src="src/game/game_assets.js"></script>
+    <script src="src/game/resource.js"></script>
+    <script src="src/game_manager/game_assets.js"></script>
+    <script src="src/game_manager/game_lang.js"></script>
 
     <script src="src/element/element_action.js"></script>
     <script src="src/element/element_actions/action_default.js"></script>
@@ -109,9 +113,9 @@
     <script src="src/element/elements/element_ground.js"></script>
     <script src="src/element/elements/element_default.js"></script>
 
-    <script src="src/game/game_setting.js"></script>
+    <script src="src/game_manager/game_setting.js"></script>
 
-    <script src="src/game/listeners.js"></script>
+    <script src="src/game_manager/listeners.js"></script>
     <script src="src/game/map.js"></script>
     <script src="main.js"></script>
 </body>

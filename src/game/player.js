@@ -5,6 +5,7 @@ class Player {
         this.handElement = null;
         this.handElementQuantity = 1;
         this.money = 500;
+        this.menuActive = false;
     }
 
     getHandElement() {
@@ -46,5 +47,17 @@ class Player {
 
     removeMoney(number) {
         this.money -= number;
+    }
+
+    setMenuActive(menuActive) {
+        this.menuActive = menuActive;
+    }
+
+    isMenuActive() {
+        return this.menuActive;
+    }
+
+    toggleMenuActive() {
+        this.menuActive = !this.menuActive;
     }
 }

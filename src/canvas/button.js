@@ -5,7 +5,7 @@ class Button {
         this.name = name;
     }
 
-    executor(event) {
+    executor() {
         throw new Error("This function need to be implemented");
     }
 

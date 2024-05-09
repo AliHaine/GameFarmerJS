@@ -1,6 +1,6 @@
 class ActionDefault extends ElementAction {
 	executor(square) {
-		const element = getElementFromId(square.querySelectorAll('img')[1].getAttribute("id"))
+		const element = Element.getElementFromId(square.querySelectorAll('img')[1].getAttribute("id"))
 		if (element.getResource() !== undefined) {
 			element.getResource().addResourceToBar(element.getResourceNumber());
 			displayRightClick("+" + element.getResourceNumber(), element.getResource().icon, player.getMouseX() + 40, player.getMouseY());

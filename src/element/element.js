@@ -76,4 +76,13 @@ class Element {
     getElementImageSrc() {
         return this.image.getAttribute("src");
     }
+
+    static getElementFromId(id) {
+        for (const elementName in ELEMENT) {
+            const element = ELEMENT[elementName];
+            if (element.getElementId().toUpperCase() === id.toUpperCase())
+                return element;
+        }
+        return null;
+    }
 }

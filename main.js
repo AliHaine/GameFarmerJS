@@ -19,19 +19,9 @@ function loadListeners() {
 
     document.addEventListener('mousemove', mouseMove);
     document.addEventListener("mousedown", mouseDown);
-    document.getElementsByClassName("left-item")[0].addEventListener("mousedown", mouseDownToolBarButton)
 
     TOOLBAR_CATEGORY.CROP.addEventListener("mousedown", mouseDownToolBar);
     TOOLBAR_CATEGORY.FENCE.addEventListener("mousedown", mouseDownToolBar);
-}
-
-function getElementFromId(id) {
-    for (const elementName in ELEMENT) {
-        const element = ELEMENT[elementName];
-        if (element.getElementId().toUpperCase() === id.toUpperCase())
-            return element;
-    }
-    return null;
 }
 
 function defineGameSettings(inputs_value) {

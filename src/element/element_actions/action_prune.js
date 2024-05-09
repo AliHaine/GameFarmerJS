@@ -4,7 +4,7 @@ class ActionPrune extends ElementAction {
 	}
 
 	executor(square) {
-		const block = getElementFromId(square.querySelectorAll('img')[1].getAttribute("id"))
+		const block = Element.getElementFromId(square.querySelectorAll('img')[1].getAttribute("id"))
 		block.getResource().addResourceToBar(block.getResourceNumber());
 		displayRightClick("+" + block.getResourceNumber(), block.getResource().icon, player.getMouseX() + 40, player.getMouseY());
 		square.removeChild(square.querySelectorAll('img')[1]);

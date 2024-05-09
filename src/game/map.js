@@ -104,7 +104,7 @@ class Map {
 
     getElementFromSquare(square) {
         const nodes = square.querySelectorAll('img');
-        return getElementFromId(nodes[nodes.length - 1].getAttribute('id'));
+        return Element.getElementFromId(nodes[nodes.length - 1].getAttribute('id'));
     }
 
     /**

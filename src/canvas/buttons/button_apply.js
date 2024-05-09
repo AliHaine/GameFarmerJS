@@ -6,8 +6,7 @@ class ButtonApply extends Button {
     executor() {
         const inputs = document.querySelectorAll("#menuSettings input");
         SOUND.DEFAULT_SOUND.volume = inputs[0].value;
-        MENU.SETTINGS.style.display = "none";
-        player.setMenuActive(false);
+        MENU.SETTINGS.closeMenu();
         displayMessageToAlertBox(ENG_LANG.SETTINGS_APPLIED)
     }
 }

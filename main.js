@@ -17,8 +17,8 @@ function loadListeners() {
         event.preventDefault();
     })
 
-    document.addEventListener('mousemove', mouseMoveMap);
-    document.addEventListener("mousedown", mouseDownMap);
+    document.addEventListener('mousemove', mouseMove);
+    document.addEventListener("mousedown", mouseDown);
     document.getElementsByClassName("left-item")[0].addEventListener("mousedown", mouseDownToolBarButton)
 
     TOOLBAR_CATEGORY.CROP.addEventListener("mousedown", mouseDownToolBar);

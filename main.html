@@ -11,8 +11,6 @@
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/alertbox.css">
     <link rel="icon" type="image/png" href="assets/image/icon/favicon.png" />
-
-
 </head>
 <body draggable="false">
     <div class="menu">
@@ -28,7 +26,7 @@
         <input class="menuItem slider" type="range" min="1" max="20" value="10">
 
         <output class="menuItem">Natural generation</output>
-        <input class="menuItem slider" type="range" min="1" max="100" value="50">
+        <input class="menuItem slider" type="range" min="1" max="100" value="70">
 
         <output class="menuItem">Enable sounds</output>
 
@@ -47,26 +45,23 @@
         <button id="buttonPlay" class="menuItem button">Play</button>
     </div>
 
-    <div class="menu" style="display: none">
+    <div id="menuSettings" class="menu" style="display: none">
         <h1>Settings</h1>
 
         <output class="menuItem">Sound volume</output>
-        <input class="menuItem slider" type="range" step="0.1" min="0.1" max="1" value="0.2">
+        <input class="menuItem slider" type="range" step="0.1" min="0" max="1" value="0.2">
 
-        <button id="buttonSettingsApply" class="menuItem button">Apply</button>
+        <button class="menuItem button">Apply</button>
 
 
         <a href="https://github.com/AliHaine/GameFarmerJS" target="_blank">Project GitHub </a>
     </div>
 
-    <div class="menu" style="display: none">
+    <div id="menuShop" class="menu" style="display: none">
         <h1>Shop</h1>
 
+        <button class="menuItem button">Buy</button>
 
-        <button id="buttonShopBuy" class="menuItem button">Buy</button>
-
-
-        <a href="https://github.com/AliHaine/GameFarmerJS" target="_blank">Project GitHub </a>
     </div>
 
     <nav id="ressourcebar">
@@ -100,6 +95,11 @@
     <script src="src/game/resource.js"></script>
     <script src="src/game_manager/game_assets.js"></script>
     <script src="src/game_manager/game_lang.js"></script>
+
+    <script src="src/canvas/menu.js"></script>
+    <script src="src/canvas/button.js"></script>
+    <script src="src/canvas/buttons/button_apply.js"></script>
+    <script src="src/canvas/buttons/button_buy.js"></script>
 
     <script src="src/element/element_action.js"></script>
     <script src="src/element/element_actions/action_default.js"></script>

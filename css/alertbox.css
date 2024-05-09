@@ -8,6 +8,7 @@
     padding: 20px;
     background-color: #8842d5; /* Red */
     color: white;
+    border: solid #b580ed;
     margin-left: 50%;
     transform: translate(-50%,0)
 }

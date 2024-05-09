@@ -107,6 +107,14 @@ class Map {
         return getElementFromId(nodes[nodes.length - 1].getAttribute('id'));
     }
 
+    /**
+     * Checks if the square contains the maximum number of element allowed.
+     *
+     * A square can contain only 2 Elements, so if the length returned by the
+     * selectorAll is more than 1, it means the maximum Elements is reached in this square.
+     *
+     * @returns {boolean} True if the square is max, otherwise false.
+     */
     isSquareContainMaxElement(square) {
         return square.querySelectorAll('img').length > 1;
     }

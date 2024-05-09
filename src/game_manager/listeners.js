@@ -11,9 +11,13 @@ function mouseDownToolBar(event) {
 	document.body.style.cursor = "url(" + player.getHandElement().getElementImageSrc() + "), auto";
 }
 
-function mouseDownMap(event) {
-	if (player.isMenuActive())
-		return;
+function mouseDown(event) {
+	if (player.isMenuActive()) {
+		const button = Button.tryToGetButtonFromName(event.target.textContent)
+		if (button === null)
+			return;
+		return button.executor(event);
+	}
 	const [x, y] = map.getMapMouseXY();
 	if (map.isBorderOfMap(y, x))
 		return;
@@ -36,7 +40,7 @@ function mouseDownToolBarButton(event) {
 	player.toggleMenuActive();
 }
 
-function mouseMoveMap(event) {
+function mouseMove(event) {
 	player.setMouseXY(event.clientX, event.clientY);
 	if (player.isMenuActive())
 		return;

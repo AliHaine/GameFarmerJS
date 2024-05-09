@@ -6,7 +6,13 @@ let mapWidth;
 let infiniteResources;
 
 const MENU = {
-	SETTINGS: document.getElementsByClassName("menu")[1]
+	SETTINGS: document.getElementsByClassName("menu")[1],
+	SHOP: document.getElementsByClassName("menu")[2]
+}
+
+const BUTTON = {
+	APPLY: new ButtonApply(MENU.SETTINGS.getElementsByTagName("button")[0].textContent),
+	BUY: new ButtonBuy(MENU.SHOP.getElementsByTagName("button")[0].textContent)
 }
 
 const RESOURCE = {

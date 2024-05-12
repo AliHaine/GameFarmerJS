@@ -84,19 +84,7 @@ function displayRightClick(text, image, x, y) {
 
     document.body.appendChild(div);
 
-    displayRightClickAnimation(div);
-}
-
-function displayRightClickAnimation(element) {
-    let loopCount = 0;
-
-    const intervalId = setInterval(function() {
-        element.style.top = `${parseInt(element.style.top || 0) - 1}px`;
-        if (loopCount++ > 50) {
-            clearInterval(intervalId);
-            element.remove();
-        }
-    }, 10);
+    div.classList.add("resourceCollectedAnimation");
 }
 
 function displayMessageToAlertBox(messageToDisplay) {

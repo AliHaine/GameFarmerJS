@@ -17,11 +17,11 @@ function mouseDown(event) {
 		return button.executor();
 	if (player.isUnderMenu())
 			return;
-	const [x, y] = map.getMapMouseXY();
-	if (map.isBorderOfMap(y, x))
+
+	const square = map.tryToGetSquareFromGround(event.target)
+	if (square === null)
 		return;
 
-	const square = map.getSquare(x, y);
 	if (event.button === 0 && player.getHandElement() != null)
 		player.getHandElement().setElementToSquare(square);
 	else if (event.button === 2) {
@@ -34,20 +34,4 @@ function mouseDown(event) {
 
 function mouseMove(event) {
 	player.setMouseXY(event.clientX, event.clientY);
-	if (player.isUnderMenu())
-		return;
-	const [x, y] = map.getMapMouseXY();
-	const square = map.getSquare(x, y);
-	if (map.isBorderOfMap(y, x)) {
-		if (map.hoveredSquare != null)
-			map.hoveredSquare.querySelector("img.ground").classList.remove("square-hover-effect");
-		map.hoveredSquare = null
-		return;
-	}
-	if (map.hoveredSquare === square)
-		return;
-	if (map.hoveredSquare != null)
-		map.hoveredSquare.querySelector("img.ground").classList.remove("square-hover-effect");
-	square.querySelector("img.ground").classList.add("square-hover-effect");
-	map.hoveredSquare = square;
 }

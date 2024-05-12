@@ -17,6 +17,11 @@ function loadListeners() {
         event.preventDefault();
     })
 
+    document.addEventListener("animationend", (event) => {
+        if (event.target.classList.contains('resourceCollectedAnimation'))
+            return event.target.remove();
+    });
+
     document.addEventListener('mousemove', mouseMove);
     document.addEventListener("mousedown", mouseDown);
 

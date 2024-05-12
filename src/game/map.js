@@ -13,7 +13,6 @@ class Map {
 
         this.squaresPerRow = Math.floor(this.map.clientWidth / globalSize);
         this.numRows = Math.floor(this.map.clientHeight / globalSize);
-        this.hoveredSquare = null;
 
         this.mapGenerator();
     }
@@ -37,7 +36,7 @@ class Map {
                 square.classList.add('square');
                 if (this.#isCorner(x, y))
                     square.appendChild(IMG.GRASS_CORNER.cloneNode(true))
-                else if (this.isBorderOfMap(x, y))
+                else if (this.#isBorderOfMap(x, y))
                     square.appendChild(IMG.GRASS_SIDE.cloneNode(true));
                 else {
                     square.appendChild(IMG.GRASS.cloneNode(true));
@@ -80,7 +79,7 @@ class Map {
             y === 0 && x === (this.numRows - 1) || x === (this.numRows - 1) && y === (this.squaresPerRow - 1);
     }
 
-    isBorderOfMap(x, y) {
+    #isBorderOfMap(x, y) {
         return x <= 0 || y <= 0 || x >= (this.numRows - 1) || y >= (this.squaresPerRow - 1);
     }
 
@@ -92,14 +91,6 @@ class Map {
         else if (x === (this.numRows - 1))
             return "rotate(270deg)";
         return "rotate(0deg)";
-    }
-
-    getSquareIndex(x, y) {
-        return y * map.squaresPerRow + x;
-    }
-
-    getSquare(x, y) {
-        return document.querySelectorAll('.square')[this.getSquareIndex(x, y)];
     }
 
     getElementFromSquare(square) {
@@ -119,15 +110,7 @@ class Map {
         return square.querySelectorAll('img').length > 1;
     }
 
-    /**
-     * Returns the grid coordinates (x, y) of the mouse pointer relative to the game map.
-     *
-     * @returns {int[2]} An array containing the x and y coordinates.
-     */
-    getMapMouseXY() {
-        const mapRect = map.map.getBoundingClientRect();
-        const x = Math.floor((player.getMouseX() - mapRect.left) / globalSize);
-        const y = Math.floor((player.getMouseY() - mapRect.top) / globalSize);
-        return [x, y];
+    tryToGetSquareFromGround(target) {
+        return target.classList.contains("ground") ? target.parentElement : null;
     }
 }

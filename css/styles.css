@@ -28,6 +28,12 @@ body {
 	flex-grow: 1;
 }
 
-.hover-ground:hover {
-	border-radius: 13px;
+@keyframes resourceCollectedAnimation {
+	0% { transform: translateY(0); }
+	100% { transform: translateY(-30px); }
+}
+
+.resourceCollectedAnimation {
+	pointer-events: none;
+	animation: resourceCollectedAnimation 0.6s;
 }

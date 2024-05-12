@@ -11,8 +11,9 @@ const TOOLBAR_CATEGORY = {
 
 const IMG = {
 	GRASS: newImage("assets/image/ground/grass.png", "ground", 0, "ground"),
-	GRASS_SIDE: newImage("assets/image/ground/grass_side.png", "ground", 0, "ground"),
-	GRASS_CORNER: newImage("assets/image/ground/grass_corner.png", "ground", 0, "ground"),
+	//side and corner are not marked as "ground" class even though they "are" ground, because they are not interactive
+	GRASS_SIDE: newImage("assets/image/ground/grass_side.png", "ground_side", 0),
+	GRASS_CORNER: newImage("assets/image/ground/grass_corner.png", "ground_corner", 0),
 	GRASS_FARM: newImage("assets/image/ground/grass_farm.png", "ground_farm", 0, "ground"),
 	TREE0: newImage("assets/image/static/tree0.png", "tree0", 2),
 	TREE1: newImage("assets/image/static/tree1.png", "tree1", 2),

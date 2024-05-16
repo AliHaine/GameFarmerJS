@@ -1,0 +1,55 @@
+/**
+ * Add a certain number to a resource in the displayed resource navbar.
+ *
+ * This function is used to update the quantity of a resource displayed
+ * in the navigation bar of the user interface
+ *
+ * @param {Resource} resource - The resource to add
+ * @param {int} number - The amount of resource to add
+ */
+function addResourceToBar(resource, number) {
+    const img = resourceBarElement.querySelector(`li img[id="${resource.icon.id}"]`);
+    const span = img.parentElement.querySelector('span');
+    span.textContent = (parseInt(span.textContent) + number).toString()
+}
+
+/**
+ * Display text and image at the defined position on right-click event.
+ *
+ * Create a new div with the provided text and image,
+ * positioned at the specified x and y coordinates.
+ *
+ * The ID of the created is formed by the calculation x + y of the coordinates.
+ *
+ * @param {string} text - The text to display.
+ * @param {HTMLImageElement} image - The image to display.
+ * @param {int} x - The position x of the elements
+ * @param {int} y - The position y of the elements
+ */
+function displayRightClick(text, image, x, y) {
+    const div = document.createElement("div")
+    div.setAttribute("id", (x + y).toString());
+    div.appendChild(image.cloneNode(true));
+    let spanHTML = `<span class="txtHarvest"> ${text}</span>`;
+
+    div.insertAdjacentHTML('beforeend', spanHTML);
+    div.style.position = "absolute";
+    div.style.left = x + "px";
+    div.style.top = y + "px";
+    div.style.display = "block";
+
+    document.body.appendChild(div);
+
+    div.classList.add("resourceCollectedAnimation");
+}
+
+function displayMessageToAlertBox(messageToDisplay) {
+    const htmlElement = document.getElementById("alertbox");
+    htmlElement.textContent = messageToDisplay;
+    htmlElement.style.display = "block";
+    //todo
+    setTimeout( () => {
+        if (htmlElement.style.display === "block")
+            htmlElement.style.display = "none";
+    }, 3000);
+}

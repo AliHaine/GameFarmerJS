@@ -3,7 +3,7 @@ class ElementCrop extends Element {
 		super(image, new ActionHarvest());
 		this.timeToGrowth = timeToGrow;
 		this.setLootable(resource, resourceNumber)
-		this.stageImage = this.setImageStage();
+		this.stageImages = this.setImagesStage();
 		this.setDisplayName(displayName)
 		this.setHtmlDisplayCategory(TOOLBAR_CATEGORY.CROP)
 	}
@@ -11,11 +11,11 @@ class ElementCrop extends Element {
 	setElementToSquare(square) {
 		if (!this.setElementConditions(square) || !square.querySelector('img#ground_farm'))
 			return;
-		square.appendChild(this.stageImage[0].cloneNode(true));
-		for (let i= 1; i <= this.stageImage.length - 1; i++) {
+		square.appendChild(this.stageImages[0].cloneNode(true));
+		for (let i= 1; i <= this.stageImages.length - 1; i++) {
 			setTimeout(() => {
 				square.removeChild(square.querySelectorAll('img')[1]);
-				square.appendChild(this.stageImage[i].cloneNode(true));
+				square.appendChild(this.stageImages[i].cloneNode(true));
 			}, this.#cropGrowthCalculation(i));
 		}
 	}
@@ -25,10 +25,10 @@ class ElementCrop extends Element {
 	}
 
 	isGrown(number) {
-		return number === this.stageImage.length - 1;
+		return number === this.stageImages.length - 1;
 	}
 
-	setImageStage() {
+	setImagesStage() {
 		const number = getImageNumber(this.image.getAttribute("src"));
 		const path = this.getElementImageSrc().replace(/[0-9]/, "");
 		let stageImageTmp = newImages(path, this.getElementId(), number);

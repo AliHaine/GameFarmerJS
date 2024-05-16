@@ -4,10 +4,10 @@ class ActionPrune extends ElementAction {
 	}
 
 	executor(square) {
-		const block = Element.getElementFromId(square.querySelectorAll('img')[1].getAttribute("id"))
-		block.getResource().addResourceToBar(block.getResourceNumber());
-		displayRightClick("+" + block.getResourceNumber(), block.getResource().icon, player.getMouseX() + 40, player.getMouseY());
+		const element = Element.getElementFromId(square.querySelectorAll('img')[1].getAttribute("id"))
+		addResourceToBar(element.getResource(), element.getResourceNumber());
+		displayRightClick("+" + element.getResourceNumber(), element.getResource().icon, player.getMouseX() + 40, player.getMouseY());
 		square.removeChild(square.querySelectorAll('img')[1]);
-		square.appendChild(block.getBlockChild().getImage().cloneNode(true));
+		square.appendChild(element.getBlockChild().getImage().cloneNode(true));
 	}
 }

@@ -3,21 +3,31 @@
     flex-direction: column;
     align-items: center;
     background-color: #00ff6e;
-    flex-wrap: wrap;
-    flex: 1 1 180px;
+    margin: 5px;
+    box-sizing: border-box;
 }
 
 .shopItems {
     display: flex;
     flex-direction: row;
     align-items: center;
-    background-color: #00ff6e;
+
     margin-bottom: 5px;
+    background-color: #b580ed;
     flex-wrap: wrap;
+    max-width: 382px;
 }
 
-.test {
-    background: crimson;
+#menuShopHeader {
+    display: inline-block;
+    background-color: #00ff6e;
+    width: 100%;
+}
+
+#menuShopHeader img {
+    float: left;
+    position: relative;
+    left: -50%;
 }
 
 #menuShop h1 {

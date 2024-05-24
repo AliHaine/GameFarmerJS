@@ -12,7 +12,7 @@ function mouseDownToolBar(event) {
 }
 
 function mouseDown(event) {
-	const button = Button.tryToGetButtonFromName(event.target.textContent)
+	const button = Button.tryToGetButtonFromName(event.target)
 	if (button !== null)
 		return button.executor();
 	if (player.isUnderMenu())

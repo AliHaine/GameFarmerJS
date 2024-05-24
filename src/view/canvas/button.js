@@ -9,7 +9,10 @@ class Button {
         throw new Error("This function need to be implemented");
     }
 
-    static tryToGetButtonFromName(name) {
+    static tryToGetButtonFromName(target) {
+        if (target.parentElement === null)
+            return null;
+        name = target.parentElement.textContent;
         for (const button in BUTTON) {
             if (name === BUTTON[button].getName())
                 return BUTTON[button];

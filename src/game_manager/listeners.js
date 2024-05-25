@@ -12,12 +12,8 @@ function mouseDownToolBar(event) {
 }
 
 function mouseDown(event) {
-	const button = Button.tryToGetButtonFromName(event.target)
-	if (button !== null)
-		return button.executor();
 	if (player.isUnderMenu())
 			return;
-
 	const square = map.tryToGetSquareFromGround(event.target)
 	if (square === null)
 		return;

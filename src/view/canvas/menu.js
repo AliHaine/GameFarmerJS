@@ -2,8 +2,6 @@ class Menu {
     static menuActive = null;
     constructor(element) {
         this.menuHtmlElement = element;
-        this.menuId = element.id;
-        this.menuTitle = element.getElementsByTagName("h1")[0].textContent;
         this.menuHtmlButtons = element.getElementsByTagName("button");
     }
 
@@ -16,11 +14,15 @@ class Menu {
         Menu.menuActive = null;
     }
 
-    displayMenu() {
+    openMenu() {
         if (Menu.menuActive !== null)
             Menu.menuActive.closeMenu();
         this.menuHtmlElement.style.display = "flex";
         this.setMenuActive();
+    }
+
+    displayMenu() {
+        this === Menu.menuActive ? Menu.menuActive.closeMenu() : this.openMenu();
     }
 
     getHtmlButton(index) {

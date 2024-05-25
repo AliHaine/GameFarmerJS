@@ -9,7 +9,8 @@ class Button {
         throw new Error("This function need to be implemented");
     }
 
-    static tryToGetButtonFromName(target) {
+    static tryToGetButtonFromTarget(target) {
+        if (target.classList.contains("buttonClose")) return BUTTON.CLOSE;
         if (target.parentElement === null)
             return null;
         name = target.parentElement.textContent;

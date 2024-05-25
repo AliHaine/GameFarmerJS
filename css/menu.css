@@ -137,3 +137,19 @@
 .button:focus {
 	color: #8842d5;
 }
+
+.buttonClose {
+	position: absolute;
+	top: 3px;
+	right: 10px;
+}
+
+.buttonClose:after {
+	content: "\2716";
+	color: #b580ed;
+	font-size: 15px;
+}
+
+.buttonClose:hover:after {
+	color: #FFFFFF;
+}

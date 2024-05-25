@@ -22,6 +22,14 @@ function loadListeners() {
             return event.target.remove();
     });
 
+    document.getElementsByClassName("left-item")[0].addEventListener("click", function(event) {
+        MENU.SETTINGS.displayMenu()
+    });
+
+    document.getElementsByClassName("right-item")[0].addEventListener("click", function(event) {
+        MENU.SHOP.displayMenu()
+    });
+
     document.addEventListener('mousemove', mouseMove);
     document.addEventListener("mousedown", mouseDown);
 

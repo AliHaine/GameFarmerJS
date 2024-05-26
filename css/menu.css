@@ -139,6 +139,7 @@
 }
 
 .buttonClose {
+	content: "sadasdas";
 	position: absolute;
 	top: 3px;
 	right: 10px;

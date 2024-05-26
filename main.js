@@ -3,7 +3,7 @@ const player = new Player();
 
 document.getElementById('buttonPlay').addEventListener('click', function() {
     defineGameSettings(document.getElementsByTagName("input"));
-    document.getElementsByClassName("menu")[0].remove();
+    document.getElementById("menuStart").remove();
     initGame();
 });
 
@@ -28,6 +28,13 @@ function loadListeners() {
 
     document.getElementsByClassName("right-item")[0].addEventListener("click", function(event) {
         MENU.SHOP.displayMenu()
+    });
+
+    document.getElementById("menus").addEventListener("click", function(event) {
+        const button = Button.tryToGetButtonFromTarget(event.target);
+        if (button === null)
+            return;
+        button.executor();
     });
 
     document.addEventListener('mousemove', mouseMove);

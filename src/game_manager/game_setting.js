@@ -6,13 +6,14 @@ let mapWidth;
 let infiniteResources;
 
 const MENU = {
-	SETTINGS: new Menu(document.getElementsByClassName("menu")[1]),
-	SHOP: new Menu(document.getElementsByClassName("menu")[2]),
+	SETTINGS: new Menu(document.getElementById("menuSettings")),
+	SHOP: new Menu(document.getElementById("menuShop")),
 }
 
 const BUTTON = {
-	APPLY: new ButtonApply(MENU.SETTINGS.getHtmlButton(0).textContent),
-	BUY: new ButtonBuy(MENU.SHOP.getHtmlButton(0).textContent),
+	APPLY: new ButtonApply(),
+	BUY: new ButtonBuy(),
+	SELL: new ButtonSell(),
 	CLOSE: new ButtonClose(),
 }
 

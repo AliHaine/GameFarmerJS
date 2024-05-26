@@ -14,97 +14,99 @@
     <link rel="icon" type="image/png" href="assets/image/icon/favicon.png" />
 </head>
 <body draggable="false">
-    <div class="menu">
-        <h1>Game settings</h1>
+    <div id="menus">
+        <div id="menuStart" class="menu">
+            <h1>Game settings</h1>
 
-        <output class="menuItem">Map height</output>
-        <input class="menuItem slider" type="range" min="30" max="80" value="75">
+            <output class="menuItem">Map height</output>
+            <input class="menuItem slider" type="range" min="30" max="80" value="75">
 
-        <output class="menuItem">Map width</output>
-        <input class="menuItem slider" type="range" min="30" max="95" value="95">
+            <output class="menuItem">Map width</output>
+            <input class="menuItem slider" type="range" min="30" max="95" value="95">
 
-        <output class="menuItem">Time to grow</output>
-        <input class="menuItem slider" type="range" min="1" max="20" value="10">
+            <output class="menuItem">Time to grow</output>
+            <input class="menuItem slider" type="range" min="1" max="20" value="10">
 
-        <output class="menuItem">Natural generation</output>
-        <input class="menuItem slider" type="range" min="1" max="100" value="70">
+            <output class="menuItem">Natural generation</output>
+            <input class="menuItem slider" type="range" min="1" max="100" value="70">
 
-        <output class="menuItem">Enable sounds</output>
+            <output class="menuItem">Enable sounds</output>
 
-        <label class="container menuItem">
-            <input type="checkbox" checked />
-            <span class="checkmark"></span>
-        </label>
+            <label class="container menuItem">
+                <input type="checkbox" />
+                <span class="checkmark"></span>
+            </label>
 
-        <output class="menuItem">Infinite resources</output>
+            <output class="menuItem">Infinite resources</output>
 
-        <label class="container menuItem">
-            <input type="checkbox" checked />
-            <span class="checkmark"></span>
-        </label>
+            <label class="container menuItem">
+                <input type="checkbox" checked />
+                <span class="checkmark"></span>
+            </label>
 
-        <button id="buttonPlay" class="menuItem button">Play</button>
-    </div>
+            <button id="buttonPlay" class="menuItem button">Play</button>
+        </div>
 
-    <div id="menuSettings" class="menu" style="display: none">
-        <h1>Settings</h1>
+        <div id="menuSettings" style="display: none" class="menu">
+            <h1>Settings</h1>
 
-        <output class="menuItem">Sound volume</output>
-        <input class="menuItem slider" type="range" step="0.1" min="0" max="1" value="0.2">
+            <output class="menuItem">Sound volume</output>
+            <input class="menuItem slider" type="range" step="0.1" min="0" max="1" value="0.2">
 
-        <button class="menuItem button">Apply</button>
+            <button class="menuItem button buttonApply">Apply</button>
 
 
-        <a href="https://github.com/AliHaine/GameFarmerJS" target="_blank">Project GitHub </a>
-        <div class="buttonClose"></div>
-    </div>
-
-    <div id="menuShop" class="menu" style="display: none">
-        <div id="menuShopHeader">
-            <div id="menuShopHeaderMoney">
-                <img src="assets/image/icon/money_icon.png">
-                <span>0</span>
-            </div>
-            <h1>Shop</h1>
+            <a href="https://github.com/AliHaine/GameFarmerJS" target="_blank">Project GitHub </a>
             <div class="buttonClose"></div>
         </div>
-        <div class="shopItems">
-            <div class="shopItem test">
-                <img src="assets/image/icon/melon_icon.png">
-                <button class="menuItem button">Buy</button>
-                <button class="menuItem button">Sell</button>
+
+        <div id="menuShop" style="display: none" class="menu">
+            <div id="menuShopHeader">
+                <div id="menuShopHeaderMoney">
+                    <img src="assets/image/icon/money_icon.png">
+                    <span>0</span>
+                </div>
+                <h1>Shop</h1>
+                <div class="buttonClose"></div>
             </div>
-            <div class="shopItem">
-                <img src="assets/image/icon/wheat_icon.png">
-                <button class="menuItem button">Buy</button>
-            </div>
-            <div class="shopItem">
-                <img src="assets/image/icon/fruit_icon.png">
-                <button class="menuItem button">Buy</button>
-            </div>
-            <div class="shopItem">
-                <img src="assets/image/icon/fruit_icon.png">
-                <button class="menuItem button">Buy</button>
-            </div>
-            <div class="shopItem">
-                <img src="assets/image/icon/fruit_icon.png">
-                <button class="menuItem button">Buy</button>
-            </div>
-            <div class="shopItem">
-                <img src="assets/image/icon/fruit_icon.png">
-                <button class="menuItem button">Buy</button>
-            </div>
-            <div class="shopItem">
-                <img src="assets/image/icon/fruit_icon.png">
-                <button class="menuItem button">Buy</button>
-            </div>
-            <div class="shopItem">
-                <img src="assets/image/icon/fruit_icon.png">
-                <button class="menuItem button">Buy</button>
-            </div>
-            <div class="shopItem">
-                <img src="assets/image/icon/fruit_icon.png">
-                <button class="menuItem button">Buy</button>
+            <div class="shopItems">
+                <div class="shopItem test">
+                    <img src="assets/image/icon/melon_icon.png">
+                    <button class="menuItem button buttonBuy">Buy</button>
+                    <button class="menuItem button buttonSell">Sell</button>
+                </div>
+                <div class="shopItem">
+                    <img src="assets/image/icon/wheat_icon.png">
+                    <button class="menuItem button">Buy</button>
+                </div>
+                <div class="shopItem">
+                    <img src="assets/image/icon/fruit_icon.png">
+                    <button class="menuItem button">Buy</button>
+                </div>
+                <div class="shopItem">
+                    <img src="assets/image/icon/fruit_icon.png">
+                    <button class="menuItem button">Buy</button>
+                </div>
+                <div class="shopItem">
+                    <img src="assets/image/icon/fruit_icon.png">
+                    <button class="menuItem button">Buy</button>
+                </div>
+                <div class="shopItem">
+                    <img src="assets/image/icon/fruit_icon.png">
+                    <button class="menuItem button">Buy</button>
+                </div>
+                <div class="shopItem">
+                    <img src="assets/image/icon/fruit_icon.png">
+                    <button class="menuItem button">Buy</button>
+                </div>
+                <div class="shopItem">
+                    <img src="assets/image/icon/fruit_icon.png">
+                    <button class="menuItem button">Buy</button>
+                </div>
+                <div class="shopItem">
+                    <img src="assets/image/icon/fruit_icon.png">
+                    <button class="menuItem button">Buy</button>
+                </div>
             </div>
         </div>
     </div>
@@ -149,6 +151,7 @@
     <script src="src/view/canvas/button.js"></script>
     <script src="src/view/canvas/buttons/button_apply.js"></script>
     <script src="src/view/canvas/buttons/button_buy.js"></script>
+    <script src="src/view/canvas/buttons/button_sell.js"></script>
     <script src="src/view/canvas/buttons/button_close.js"></script>
 
     <script src="src/element/element_action.js"></script>

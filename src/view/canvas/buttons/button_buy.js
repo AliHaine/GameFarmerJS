@@ -1,6 +1,6 @@
 class ButtonBuy extends Button {
-    constructor(name) {
-        super(name);
+    constructor() {
+        super("buttonBuy");
     }
 
     executor() {

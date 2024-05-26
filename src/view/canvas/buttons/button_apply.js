@@ -1,6 +1,6 @@
 class ButtonApply extends Button {
-    constructor(name) {
-        super(name);
+    constructor() {
+        super("buttonApply");
     }
 
     executor() {

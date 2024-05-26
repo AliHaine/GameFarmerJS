@@ -1,6 +1,6 @@
 class ButtonClose extends Button {
     constructor() {
-        super("button_close");
+        super("buttonClose");
     }
 
     executor() {

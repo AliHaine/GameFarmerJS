@@ -10,12 +10,9 @@ class Button {
     }
 
     static tryToGetButtonFromTarget(target) {
-        if (target.classList.contains("buttonClose")) return BUTTON.CLOSE;
-        if (target.parentElement === null)
-            return null;
-        name = target.parentElement.textContent;
+        const classList = target.classList;
         for (const button in BUTTON) {
-            if (name === BUTTON[button].getName())
+            if (classList.contains(BUTTON[button].getName()))
                 return BUTTON[button];
         }
         return null;

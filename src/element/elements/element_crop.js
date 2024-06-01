@@ -21,7 +21,7 @@ class ElementCrop extends Element {
 	}
 
 	#cropGrowthCalculation(stage) {
-		return (this.timeToGrowth * stage + (Math.random() * this.timeToGrowth)) * globalGrowthSpeed;
+		return (this.timeToGrowth * stage + (Math.random() * this.timeToGrowth)) * Element.timeToGrow;
 	}
 
 	isGrown(number) {

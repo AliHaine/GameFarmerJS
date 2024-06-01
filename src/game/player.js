@@ -1,5 +1,11 @@
 class Player {
+    static player;
+    infiniteResources = document.getElementById("inputInfiniteRes").value;
+
+
     constructor() {
+        Player.player = this;
+
         this.mouseX = 0;
         this.mouseY = 0;
         this.handElement = null;
@@ -27,6 +33,10 @@ class Player {
         return this.money;
     }
 
+    getInfiniteResources() {
+        return this.infiniteResources
+    }
+
     setHandElement(handElement) {
         this.handElement = handElement;
     }
@@ -52,3 +62,5 @@ class Player {
         return Menu.menuActive !== null;
     }
 }
+
+export default Player;

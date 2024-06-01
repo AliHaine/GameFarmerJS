@@ -1,5 +1,7 @@
-let map;
-const player = new Player();
+import * as Listeners from "./src/game_manager/listeners";
+import Map from './src/game/map.js';
+import Player from './src/game/player.js';
+import * as Element from './src/element/element.js';
 
 document.getElementById('buttonPlay').addEventListener('click', function() {
     defineGameSettings(document.getElementsByTagName("input"));
@@ -8,6 +10,8 @@ document.getElementById('buttonPlay').addEventListener('click', function() {
 });
 
 function initGame() {
+    Element.loadElements();
+    new Player();
     new Map();
     loadListeners();
 }
@@ -37,20 +41,14 @@ function loadListeners() {
         button.executor();
     });
 
-    document.addEventListener('mousemove', mouseMove);
-    document.addEventListener("mousedown", mouseDown);
+    document.addEventListener('mousemove', Listeners.mouseMove);
+    document.addEventListener("mousedown", Listeners.mouseDown);
 
-    TOOLBAR_CATEGORY.CROP.addEventListener("mousedown", mouseDownToolBar);
-    TOOLBAR_CATEGORY.FENCE.addEventListener("mousedown", mouseDownToolBar);
+    TOOLBAR_CATEGORY.CROP.addEventListener("mousedown", Listeners.mouseDownToolBar);
+    TOOLBAR_CATEGORY.FENCE.addEventListener("mousedown", Listeners.mouseDownToolBar);
 }
 
 function defineGameSettings(inputs_value) {
-    mapHeight = inputs_value[0].value;
-    mapWidth = inputs_value[1].value;
-    globalGrowthSpeed = inputs_value[2].value;
-    globalNaturalGeneration = inputs_value[3].value;
-    infiniteResources = inputs_value[5].checked;
-
     if (!inputs_value[4].checked)
         return
     SOUND.DEFAULT_SOUND.volume = 0.2;

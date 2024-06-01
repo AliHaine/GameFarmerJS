@@ -1,32 +1,40 @@
 class Map {
-    constructor() {
-        map = this;
+    static map;
 
-        this.map = document.createElement("div");
-        this.map.setAttribute("id", "map");
-        document.body.prepend(this.map);
+    constructor() {
+        const globalSize = 32;
+        const mapHeight = document.getElementById("inputMapHeight").value;
+        const mapWidth = document.getElementById("inputMapWidth").value;
+
+        Map.map = this;
+
+        Map.map = document.createElement("div");
+        Map.map.setAttribute("id", "map");
+        document.body.prepend(Map.map);
 
         let result = getPercent(screen.width, mapWidth);
-        this.map.style.width = result - (result % globalSize) + "px";
+        Map.map.style.width = result - (result % globalSize) + "px";
         result = getPercent(screen.height, mapHeight);
-        this.map.style.height = result - (result % globalSize) + "px";
+        Map.map.style.height = result - (result % globalSize) + "px";
 
-        this.squaresPerRow = Math.floor(this.map.clientWidth / globalSize);
-        this.numRows = Math.floor(this.map.clientHeight / globalSize);
+        this.squaresPerRow = Math.floor(Map.map.clientWidth / globalSize);
+        this.numRows = Math.floor(Map.map.clientHeight / globalSize);
 
-        this.mapGenerator();
+        this.#mapGenerator();
+        return this;
     }
 
-    addSquare(square) {
-        this.map.appendChild(square);
+    #addSquare(square) {
+        Map.map.appendChild(square);
     }
 
-    mapGenerator() {
+    #mapGenerator() {
+        const naturalGeneration = document.getElementById("inputNaturalGen").value;
         const start = performance.now();
         const naturalSpawnableElement = [];
         for (const elementName in ELEMENT) {
             const element = ELEMENT[elementName];
-            if (element.naturalSpawnChance === undefined)
+            if (!element.naturalSpawnChance)
                 continue;
             naturalSpawnableElement.push(element);
         }
@@ -40,13 +48,13 @@ class Map {
                     square.appendChild(IMG.GRASS_SIDE.cloneNode(true));
                 else {
                     square.appendChild(IMG.GRASS.cloneNode(true));
-                    if (Math.random() * 100 <= globalNaturalGeneration) {
+                    if (Math.random() * 100 <= naturalGeneration) {
                         this.#generateElement(square, [...naturalSpawnableElement]);
                     }
                 }
                 const img = square.querySelector('img');
                 img.style.transform = this.#rotateCalculation(x, y);
-                this.addSquare(square);
+                this.#addSquare(square);
             }
         }
         console.log(`Time to load the map: ${performance.now() - start} ms`);
@@ -114,3 +122,5 @@ class Map {
         return target.classList.contains("ground") ? target.parentElement : null;
     }
 }
+
+export default Map;

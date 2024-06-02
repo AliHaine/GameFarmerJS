@@ -1,8 +1,9 @@
-class Menu {
+export default class Menu {
+    static menus = new Map();
     static menuActive = null;
+
     constructor(element) {
         this.menuHtmlElement = element;
-        this.menuHtmlButtons = element.getElementsByTagName("button");
     }
 
     setMenuActive() {
@@ -23,9 +24,5 @@ class Menu {
 
     displayMenu() {
         this === Menu.menuActive ? Menu.menuActive.closeMenu() : this.openMenu();
-    }
-
-    getHtmlButton(index) {
-        return this.menuHtmlButtons[index];
     }
 }

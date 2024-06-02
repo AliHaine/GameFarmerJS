@@ -1,4 +1,7 @@
-class ElementCrop extends Element {
+import Element from "./../element.js"
+import ActionHarvest from "../element_actions/action_harvest.js";
+
+export default class ElementCrop extends Element {
 	constructor(image, displayName, timeToGrow, resource, resourceNumber = 1) {
 		super(image, new ActionHarvest());
 		this.timeToGrowth = timeToGrow;

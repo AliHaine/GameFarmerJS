@@ -1,4 +1,6 @@
-class Button {
+export default class Button {
+    static buttons = [];
+
     constructor(name) {
         if (this.constructor === Button)
             throw new Error("Abstract classes can't be instantiated.");
@@ -10,12 +12,7 @@ class Button {
     }
 
     static tryToGetButtonFromTarget(target) {
-        const classList = target.classList;
-        for (const button in BUTTON) {
-            if (classList.contains(BUTTON[button].getName()))
-                return BUTTON[button];
-        }
-        return null;
+        return Button.buttons.find((button) => target.classList.contains(button.getName()));
     }
 
     getName() {

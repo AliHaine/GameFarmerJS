@@ -1,5 +1,6 @@
 import Map from "../game/map.js";
 import Player from "../game/player.js";
+import Element from "../element/element.js";
 
 export function mouseDownToolBar(event) {
 	const target = event.target.closest('div');
@@ -17,14 +18,14 @@ export function mouseDownToolBar(event) {
 export function mouseDown(event) {
 	if (Player.player.isUnderMenu())
 			return;
-	const square = Map.map.tryToGetSquareFromGround(event.target)
+	const square = Map.mapInstance.tryToGetSquareFromGround(event.target)
 	if (square === null)
 		return;
 
 	if (event.button === 0 && Player.player.getHandElement() != null)
 		Player.player.getHandElement().setElementToSquare(square);
 	else if (event.button === 2) {
-		const element = Map.map.getElementFromSquare(square);
+		const element = Map.mapInstance.getElementFromSquare(square);
 		if (element.getElementAction() === undefined)
 			return;
 		element.getElementAction().executor(square)

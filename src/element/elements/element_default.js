@@ -1,6 +1,9 @@
-class ElementDefault extends Element {
-	constructor(image, blockAction = new ActionDefault(), resource, resourceNumber = 1) {
-		super(image, blockAction);
+import Element from "./../element.js"
+import ActionDefault from "./../element_actions/action_default.js";
+
+export default class ElementDefault extends Element {
+	constructor(image, elementAction =  new ActionDefault(), resource, resourceNumber = 1) {
+		super(image, elementAction);
 		this.setLootable(resource, resourceNumber)
 	}
 

@@ -1,7 +1,8 @@
-class Player {
-    static player;
-    infiniteResources = document.getElementById("inputInfiniteRes").value;
+import Menu from "../view/canvas/menu.js";
 
+export default class Player {
+    static player;
+    infiniteResources = document.getElementById("inputInfiniteRes").checked;
 
     constructor() {
         Player.player = this;
@@ -62,5 +63,3 @@ class Player {
         return Menu.menuActive !== null;
     }
 }
-
-export default Player;

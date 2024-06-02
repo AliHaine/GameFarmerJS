@@ -1,12 +1,15 @@
-class Map {
+import Element from "../element/element.js";
+
+export default class Map {
     static map;
+    static mapInstance;
 
     constructor() {
         const globalSize = 32;
         const mapHeight = document.getElementById("inputMapHeight").value;
         const mapWidth = document.getElementById("inputMapWidth").value;
 
-        Map.map = this;
+        Map.mapInstance = this;
 
         Map.map = document.createElement("div");
         Map.map.setAttribute("id", "map");
@@ -31,13 +34,7 @@ class Map {
     #mapGenerator() {
         const naturalGeneration = document.getElementById("inputNaturalGen").value;
         const start = performance.now();
-        const naturalSpawnableElement = [];
-        for (const elementName in ELEMENT) {
-            const element = ELEMENT[elementName];
-            if (!element.naturalSpawnChance)
-                continue;
-            naturalSpawnableElement.push(element);
-        }
+        const naturalSpawnableElement = Element.elements.filter((elem) => elem.naturalSpawnChance);
         for (let x = 0; x < this.numRows; x++) {
             for (let y = 0; y < this.squaresPerRow; y++) {
                 const square = document.createElement('div');
@@ -73,10 +70,10 @@ class Map {
         }*/
 
         while (true) {
-            let block = naturalSpawnableElement[Math.floor(Math.random() * naturalSpawnableElement.length)];
+            let element = naturalSpawnableElement[Math.floor(Math.random() * naturalSpawnableElement.length)];
             let randValue = Math.floor(Math.random() * 100);
-            if (randValue <= block.naturalSpawnChance) {
-                block.setElementToSquare(square);
+            if (randValue <= element.naturalSpawnChance) {
+                element.setElementToSquare(square);
                 break;
             }
         }
@@ -122,5 +119,3 @@ class Map {
         return target.classList.contains("ground") ? target.parentElement : null;
     }
 }
-
-export default Map;

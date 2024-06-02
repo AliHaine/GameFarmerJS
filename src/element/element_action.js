@@ -1,4 +1,4 @@
-class ElementAction {
+export default class ElementAction {
 	constructor() {
 		if (this.constructor === ElementAction)
 			throw new Error("Abstract classes can't be instantiated.");

@@ -1,9 +1,8 @@
 import Element from './../element.js';
+import ActionDefault from "../element_actions/action_default.js";
 
-class ElementGround extends Element {
+export default class ElementGround extends Element {
 	constructor(image, blockAction = new ActionDefault()) {
 		super(image, blockAction);
 	}
 }
-
-export default ElementGround;

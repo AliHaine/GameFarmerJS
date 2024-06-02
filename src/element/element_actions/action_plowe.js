@@ -1,4 +1,6 @@
-class ActionPlowe extends ElementAction {
+import ElementAction from "../element_action.js";
+
+export default class ActionPlowe extends ElementAction {
 	constructor() {
 		super();
 	}

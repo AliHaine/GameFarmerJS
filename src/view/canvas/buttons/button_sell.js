@@ -1,4 +1,6 @@
-class ButtonSell extends Button {
+import Button from "../button.js";
+
+export default class ButtonSell extends Button {
     constructor() {
         super("buttonSell");
     }

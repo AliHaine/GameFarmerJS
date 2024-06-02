@@ -1,4 +1,6 @@
-class ActionUnplowe extends ElementAction {
+import ElementAction from "../element_action.js";
+
+export default class ActionUnplowe extends ElementAction {
 	constructor() {
 		super();
 	}

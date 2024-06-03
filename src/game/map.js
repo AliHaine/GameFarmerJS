@@ -1,4 +1,6 @@
 import Element from "../element/element.js";
+import {getPercent} from "../utils.js"
+import {addImgToSquare} from "../view/render.js";
 
 export default class Map {
     static map;
@@ -40,11 +42,11 @@ export default class Map {
                 const square = document.createElement('div');
                 square.classList.add('square');
                 if (this.#isCorner(x, y))
-                    square.appendChild(IMG.GRASS_CORNER.cloneNode(true))
+                    addImgToSquare(square, Element.getElementFromId("ground_corner").getImage());
                 else if (this.#isBorderOfMap(x, y))
-                    square.appendChild(IMG.GRASS_SIDE.cloneNode(true));
+                    addImgToSquare(square, Element.getElementFromId("ground_side").getImage());
                 else {
-                    square.appendChild(IMG.GRASS.cloneNode(true));
+                    addImgToSquare(square, Element.getElementFromId("ground").getImage());
                     if (Math.random() * 100 <= naturalGeneration) {
                         this.#generateElement(square, [...naturalSpawnableElement]);
                     }

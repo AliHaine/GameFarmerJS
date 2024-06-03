@@ -1,5 +1,8 @@
 import Element from "./../element.js"
 import ActionHarvest from "../element_actions/action_harvest.js";
+import {newImages, getImageNumber} from "../../utils.js";
+import {TOOLBAR_CATEGORY} from "../../game_manager/game_assets.js";
+import {addImgToSquare, replaceElementImg} from "../../view/render.js";
 
 export default class ElementCrop extends Element {
 	constructor(image, displayName, timeToGrow, resource, resourceNumber = 1) {
@@ -14,11 +17,10 @@ export default class ElementCrop extends Element {
 	setElementToSquare(square) {
 		if (!this.setElementConditions(square) || !square.querySelector('img#ground_farm'))
 			return;
-		square.appendChild(this.stageImages[0].cloneNode(true));
+		addImgToSquare(square, this.stageImages[0]);
 		for (let i= 1; i <= this.stageImages.length - 1; i++) {
 			setTimeout(() => {
-				square.removeChild(square.querySelectorAll('img')[1]);
-				square.appendChild(this.stageImages[i].cloneNode(true));
+				replaceElementImg(square, this.stageImages[i]);
 			}, this.#cropGrowthCalculation(i));
 		}
 	}

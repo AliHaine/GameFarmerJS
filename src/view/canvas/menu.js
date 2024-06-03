@@ -25,4 +25,8 @@ export default class Menu {
     displayMenu() {
         this === Menu.menuActive ? Menu.menuActive.closeMenu() : this.openMenu();
     }
+
+    static getMenu(menuId) {
+        return Menu.menus.get(menuId);
+    }
 }

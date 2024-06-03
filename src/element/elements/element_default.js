@@ -1,5 +1,6 @@
 import Element from "./../element.js"
 import ActionDefault from "./../element_actions/action_default.js";
+import {addImgToSquare} from "../../view/render.js";
 
 export default class ElementDefault extends Element {
 	constructor(image, elementAction =  new ActionDefault(), resource, resourceNumber = 1) {
@@ -10,6 +11,6 @@ export default class ElementDefault extends Element {
 	setElementToSquare(square) {
 		if (!this.setElementConditions(square))
 			return;
-		square.appendChild(this.image.cloneNode(true));
+		addImgToSquare(square, this.getImage());
 	}
 }

@@ -1,4 +1,4 @@
-function newImage(imagePath, id, z, className = "none") {
+export function newImage(imagePath, id, z, className = "none") {
     const img = new Image();
 
     img.onerror = function() {
@@ -24,7 +24,7 @@ function newImage(imagePath, id, z, className = "none") {
  * @param {int} number - The number of images to load.
  * @returns {HTMLImageElement[]} An array of HTMLImageElement objects representing the loaded images.
  */
-function newImages(imagePath, id, number) {
+export function newImages(imagePath, id, number) {
     let imgs = [];
     let indexOfPoint = imagePath.lastIndexOf('.');
 
@@ -37,7 +37,7 @@ function newImages(imagePath, id, number) {
     return imgs;
 }
 
-function getPercent(value, percent) {
+export function getPercent(value, percent) {
     return (value * percent) / 100;
 }
 
@@ -52,6 +52,6 @@ function insertToStr(strTarget, strToInsert, index) {
  * @param {string} src - The image path.
  * @returns {int} - The number of the image
  */
-function getImageNumber(src) {
+export function getImageNumber(src) {
     return parseInt(src.match(/\d/)[0])
 }

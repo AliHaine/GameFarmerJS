@@ -1,3 +1,5 @@
+import {resourceBarElement} from "../game_manager/game_assets.js";
+
 /**
  * Add a certain number to a resource in the displayed resource navbar.
  *
@@ -7,7 +9,7 @@
  * @param {Resource} resource - The resource to add
  * @param {int} number - The amount of resource to add
  */
-function addResourceToBar(resource, number) {
+export function addResourceToBar(resource, number) {
     const img = resourceBarElement.querySelector(`li img[id="${resource.icon.id}"]`);
     const span = img.parentElement.querySelector('span');
     span.textContent = (parseInt(span.textContent) + number).toString()
@@ -26,7 +28,7 @@ function addResourceToBar(resource, number) {
  * @param {int} x - The position x of the elements
  * @param {int} y - The position y of the elements
  */
-function displayRightClick(text, image, x, y) {
+export function displayRightClick(text, image, x, y) {
     const div = document.createElement("div")
     div.setAttribute("id", (x + y).toString());
     div.appendChild(image.cloneNode(true));
@@ -43,7 +45,7 @@ function displayRightClick(text, image, x, y) {
     div.classList.add("resourceCollectedAnimation");
 }
 
-function displayMessageToAlertBox(messageToDisplay) {
+export function displayMessageToAlertBox(messageToDisplay) {
     const htmlElement = document.getElementById("alertbox");
     htmlElement.textContent = messageToDisplay;
     htmlElement.style.display = "block";
@@ -52,4 +54,22 @@ function displayMessageToAlertBox(messageToDisplay) {
         if (htmlElement.style.display === "block")
             htmlElement.style.display = "none";
     }, 3000);
+}
+
+export function addImgToSquare(square, elementImg) {
+    square.appendChild(elementImg.cloneNode(true));
+}
+
+export function replaceGroundImg(square, newGroundImg) {
+    square.removeChild(square.querySelector('.ground'));
+    square.appendChild(newGroundImg.cloneNode(true));
+}
+
+export function replaceElementImg(square, newElementImg) {
+    square.removeChild(square.querySelectorAll('img')[1]);
+    square.appendChild(newElementImg.cloneNode(true));
+}
+
+export function removeElementImg(square) {
+    square.removeChild(square.querySelectorAll('img')[1]);
 }

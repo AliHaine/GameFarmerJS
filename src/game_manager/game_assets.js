@@ -1,15 +1,17 @@
-const resourceBarElement = document.getElementById('ressourcebar').getElementsByTagName('ul')[0];
+import {newImage} from "../utils.js";
 
-const SOUND = {
+export const resourceBarElement = document.getElementById('ressourcebar').getElementsByTagName('ul')[0];
+
+export const SOUND = {
 	DEFAULT_SOUND: new Audio('assets/sound/default_sound.mp3')
 }
 
-const TOOLBAR_CATEGORY = {
+export const TOOLBAR_CATEGORY = {
 	CROP: document.getElementById('dropup-crop'),
 	FENCE: document.getElementById('dropup-fence')
 }
 
-const IMG = {
+export const IMG = {
 	GRASS: newImage("assets/image/ground/grass.png", "ground", 0, "ground"),
 	//side and corner are not marked as "ground" class even though they "are" ground, because they are not interactive
 	GRASS_SIDE: newImage("assets/image/ground/grass_side.png", "ground_side", 0),
@@ -40,7 +42,7 @@ const IMG = {
 	CHILI: newImage("assets/image/crops/chili6.png", "chili", 1)
 }
 
-const IMG_ICON = {
+export const IMG_ICON = {
 	FRUIT: newImage("assets/image/icon/fruit_icon.png", "fruit", 0),
 	SEED: newImage("assets/image/icon/seed_icon.png", "seed0", 0),
 	WOOD: newImage("assets/image/icon/wood_icon.png", "wood", 0),

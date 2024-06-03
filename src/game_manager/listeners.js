@@ -1,6 +1,7 @@
 import Map from "../game/map.js";
 import Player from "../game/player.js";
 import Element from "../element/element.js";
+import {displayMessageToAlertBox} from "../view/render.js";
 
 export function mouseDownToolBar(event) {
 	const target = event.target.closest('div');

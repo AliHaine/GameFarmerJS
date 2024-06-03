@@ -1,4 +1,6 @@
 import ElementAction from "../element_action.js";
+import Element from "../element.js";
+import {replaceGroundImg} from "../../view/render.js";
 
 export default class ActionUnplowe extends ElementAction {
 	constructor() {
@@ -6,7 +8,6 @@ export default class ActionUnplowe extends ElementAction {
 	}
 
 	executor(square) {
-		square.removeChild(square.querySelector('.ground'));
-		square.appendChild(IMG.GRASS.cloneNode(true));
+		replaceGroundImg(square, Element.getElementFromId("ground").getImage());
 	}
 }

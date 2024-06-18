@@ -2,6 +2,7 @@ import Map from "../game/map.js";
 import Player from "../game/player.js";
 import Element from "../element/element.js";
 import {displayMessageToAlertBox} from "../view/render.js";
+import Menu from "../view/menu.js";
 
 export function mouseDownToolBar(event) {
 	const target = event.target.closest('div');
@@ -17,7 +18,7 @@ export function mouseDownToolBar(event) {
 }
 
 export function mouseDown(event) {
-	if (Player.player.isUnderMenu())
+	if (Menu.haveMenuActive())
 			return;
 	const square = Map.mapInstance.tryToGetSquareFromGround(event.target)
 	if (square === null)

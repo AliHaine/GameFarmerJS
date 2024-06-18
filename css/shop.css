@@ -18,20 +18,20 @@
     max-width: 382px;
 }
 
-#menuShopHeader {
+.menuShopHeader {
     text-align: center;
     position: relative;
     width: 100%;
 }
 
-#menuShopHeaderMoney {
+.menuShopHeaderMoney {
     position: absolute;
     left:0;
     top: 50%; transform: translateY(-50%);
     margin-left: 5px;
 }
 
-#menuShopHeaderMoney span {
+.menuShopHeaderMoney span {
     display: inline-block;
     top: 50%; transform: translateY(-50%);
 }

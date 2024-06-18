@@ -25,7 +25,7 @@ export const IMG = {
 	FLOWER1: newImage("assets/image/static/flower1.png", "flower1", 1),
 	FLOWER2: newImage("assets/image/static/flower2.png", "flower2", 1),
 	TRUNK0: newImage("assets/image/static/trunk0.png", "trunk0", 1),
-	FENCE_WOOD_0: newImage("assets/image/fence/fence_wood_0.png", "fence_wood_0", 1),
+	DOOR_WOOD_CLOSE: newImage("assets/image/fence/door_wood_close.png", "door_wood_close", 1),
 	FENCE_WOOD_1: newImage("assets/image/fence/fence_wood_1.png", "fence_wood_1", 1),
 	FENCE_WOOD_2: newImage("assets/image/fence/fence_wood_2.png", "fence_wood_2", 1),
 	FENCE_WOOD_3: newImage("assets/image/fence/fence_wood_3.png", "fence_wood_3", 1),

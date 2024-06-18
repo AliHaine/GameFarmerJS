@@ -2,7 +2,7 @@ import Map from "./../game/map.js";
 import Player from "../game/player.js";
 
 export default class Element {
-    static timeToGrow = document.getElementById("inputTimeToGrow").value;
+    //static timeToGrow = document.getElementById("inputTimeToGrow").value;
     static elements = [];
 
     constructor(image, elementAction) {
@@ -54,6 +54,20 @@ export default class Element {
     setBlockChild(blockChild) {
         this.blockChild = blockChild;
         return this;
+    }
+
+    setPrice(sellPrice, buyPrice) {
+        this.sellPrice = sellPrice;
+        this.buyPrice = buyPrice;
+        return this;
+    }
+
+    getSellPrice() {
+        return this.sellPrice;
+    }
+
+    getBuyPrice() {
+        return this.buyPrice;
     }
 
     getResource() {

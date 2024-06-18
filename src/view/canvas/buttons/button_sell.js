@@ -5,7 +5,7 @@ export default class ButtonSell extends Button {
         super("buttonSell");
     }
 
-    executor() {
+    executor(eventTarget) {
         console.log("Executor Button Sell");
     }
 }

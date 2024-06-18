@@ -55,3 +55,10 @@ function insertToStr(strTarget, strToInsert, index) {
 export function getImageNumber(src) {
     return parseInt(src.match(/\d/)[0])
 }
+
+export function fetchHtmlPage(pageName) {
+    return fetch("./html/" + pageName)
+        .then(response => {
+            return response.text();
+        })
+}

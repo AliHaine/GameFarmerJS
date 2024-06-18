@@ -1,4 +1,4 @@
-import Menu from "../view/canvas/menu.js";
+import Menu from "../view/menu.js";
 
 export default class Player {
     static player;
@@ -57,9 +57,5 @@ export default class Player {
 
     removeMoney(number) {
         this.money -= number;
-    }
-
-    isUnderMenu() {
-        return Menu.menuActive !== null;
     }
 }

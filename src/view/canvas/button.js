@@ -7,7 +7,7 @@ export default class Button {
         this.name = name;
     }
 
-    executor() {
+    executor(eventTarget) {
         throw new Error("This function need to be implemented");
     }
 

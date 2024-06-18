@@ -5,7 +5,7 @@ export default class ButtonBuy extends Button {
         super("buttonBuy");
     }
 
-    executor() {
-        console.log("Executor Button Buy");
+    executor(eventTarget) {
+        console.log("Executor Button Buy", eventTarget.parentElement);
     }
 }

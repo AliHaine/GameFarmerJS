@@ -11,16 +11,28 @@ import ButtonApply from "../view/canvas/buttons/button_apply.js";
 import ButtonBuy from "../view/canvas/buttons/button_buy.js";
 import ButtonSell from "../view/canvas/buttons/button_sell.js";
 import ButtonClose from "../view/canvas/buttons/button_close.js";
-import Menu from "../view/canvas/menu.js";
+import ButtonMore from "../view/canvas/buttons/button_more.js";
+import Menu from "../view/menu.js";
 import * as Listeners from "./listeners.js";
 import {IMG, IMG_ICON, TOOLBAR_CATEGORY} from "./game_assets.js";
+import ButtonPlay from "../view/canvas/buttons/button_play.js";
 
 export default function loadGame() {
     loadResources();
     loadElements();
-    loadMenus();
-    loadButtons();
     loadListeners();
+}
+
+export async function preLoadGame() {
+    loadButtons();
+    await loadMenus();
+    document.getElementById("menus").addEventListener("click", function(event) {
+        const button = Button.tryToGetButtonFromTarget(event.target);
+        if (!button)
+            return;
+        button.executor(event.target);
+    });
+    Menu.getMenu("menu-start.html").displayMenu();
 }
 
 function loadElements() {
@@ -37,7 +49,7 @@ function loadElements() {
     (new ElementDefault(IMG.TRUNK0)).setNaturalSpawnChance(10).setLootable(Resource.getResource("wood"), 2);
     (new ElementDefault(IMG.TREE0, new ActionPrune())).setNaturalSpawnChance(20).setLootable(Resource.getResource("wood"), 7).setBlockChild(Element.getElementFromId("trunk0"));
     (new ElementDefault(IMG.TREE1, new ActionPrune())).setNaturalSpawnChance(20).setLootable(Resource.getResource("wood"), 7).setBlockChild(Element.getElementFromId("trunk0"));
-    (new ElementDefault(IMG.FENCE_WOOD_0)).setLootable(Resource.getResource("wood")).setHtmlDisplayCategory(TOOLBAR_CATEGORY.FENCE);
+    (new ElementDefault(IMG.DOOR_WOOD_CLOSE)).setLootable(Resource.getResource("wood")).setDisplayName("Wood door").setHtmlDisplayCategory(TOOLBAR_CATEGORY.FENCE);
     (new ElementDefault(IMG.FENCE_WOOD_1)).setLootable(Resource.getResource("wood")).setHtmlDisplayCategory(TOOLBAR_CATEGORY.FENCE);
     (new ElementDefault(IMG.FENCE_WOOD_2)).setLootable(Resource.getResource("wood")).setHtmlDisplayCategory(TOOLBAR_CATEGORY.FENCE);
     (new ElementDefault(IMG.FENCE_WOOD_3)).setLootable(Resource.getResource("wood")).setHtmlDisplayCategory(TOOLBAR_CATEGORY.FENCE);
@@ -55,12 +67,15 @@ function loadElements() {
 }
 
 function loadButtons() {
-    Button.buttons.push(new ButtonApply(), new ButtonBuy(), new ButtonSell(), new ButtonClose())
+    Button.buttons.push(new ButtonApply(), new ButtonBuy(), new ButtonSell(), new ButtonClose(), new ButtonMore(), new ButtonPlay())
 }
 
-function loadMenus() {
-    Menu.menus.set("menuSettings", new Menu(document.getElementById("menuSettings")));
-    Menu.menus.set("menuShop", new Menu(document.getElementById("menuShop")));
+async function loadMenus() {
+    await new Menu("menu-start.html").init();
+    await new Menu("menu-settings.html").init();
+    await new Menu("menu-shop.html").init();
+    /*Menu.menus.set("menuSettings", new Menu(document.getElementById("menuSettings")));
+    Menu.menus.set("menuShop", new Menu(document.getElementById("menuShop")));*/
 }
 
 function loadResources() {
@@ -82,18 +97,11 @@ function loadListeners() {
     });
 
     document.getElementsByClassName("left-item")[0].addEventListener("click", function() {
-        Menu.getMenu("menuSettings").displayMenu();
+        Menu.getMenu("menu-settings.html").displayMenu();
     });
 
     document.getElementsByClassName("right-item")[0].addEventListener("click", function() {
-        Menu.getMenu("menuShop").displayMenu()
-    });
-
-    document.getElementById("menus").addEventListener("click", function(event) {
-        const button = Button.tryToGetButtonFromTarget(event.target);
-        if (!button)
-            return;
-        button.executor();
+        Menu.getMenu("menu-shop.html").displayMenu()
     });
 
     document.addEventListener('mousemove', Listeners.mouseMove);

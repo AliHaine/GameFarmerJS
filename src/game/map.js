@@ -1,16 +1,13 @@
 import Element from "../element/element.js";
 import {getPercent} from "../utils.js"
 import {addImgToSquare} from "../view/render.js";
+import {globalSize, mapHeight, mapWidth, naturalGeneration} from "../game_manager/game_settings.js";
 
 export default class Map {
     static map;
     static mapInstance;
 
     constructor() {
-        const globalSize = 32;
-        const mapHeight = document.getElementById("inputMapHeight").value;
-        const mapWidth = document.getElementById("inputMapWidth").value;
-
         Map.mapInstance = this;
 
         Map.map = document.createElement("div");
@@ -34,7 +31,6 @@ export default class Map {
     }
 
     #mapGenerator() {
-        const naturalGeneration = document.getElementById("inputNaturalGen").value;
         const start = performance.now();
         const naturalSpawnableElement = Element.elements.filter((elem) => elem.naturalSpawnChance);
         for (let x = 0; x < this.numRows; x++) {

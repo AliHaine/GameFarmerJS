@@ -3,6 +3,7 @@ import ActionHarvest from "../element_actions/action_harvest.js";
 import {newImages, getImageNumber} from "../../utils.js";
 import {TOOLBAR_CATEGORY} from "../../game_manager/game_assets.js";
 import {addImgToSquare, replaceElementImg} from "../../view/render.js";
+import {timeToGrow} from "../../game_manager/game_settings.js";
 
 export default class ElementCrop extends Element {
 	constructor(image, displayName, timeToGrow, resource, resourceNumber = 1) {
@@ -26,7 +27,7 @@ export default class ElementCrop extends Element {
 	}
 
 	#cropGrowthCalculation(stage) {
-		return (this.timeToGrowth * stage + (Math.random() * this.timeToGrowth)) * Element.timeToGrow;
+		return (this.timeToGrowth * stage + (Math.random() * this.timeToGrowth)) * timeToGrow;
 	}
 
 	isGrown(number) {

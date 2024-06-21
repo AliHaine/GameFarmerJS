@@ -3,6 +3,7 @@ import Player from "../game/player.js";
 import Element from "../element/element.js";
 import {displayMessageToAlertBox} from "../view/render.js";
 import Menu from "../view/menu.js";
+import {infiniteResources} from "./game_settings.js";
 
 export function mouseDownToolBar(event) {
 	const target = event.target.closest('div');
@@ -10,7 +11,7 @@ export function mouseDownToolBar(event) {
 	if (element === null)
 		return;
 	const quantity = target.getElementsByClassName("txtNumber")[0].textContent;
-	if (quantity <= 0 && !Player.player.getInfiniteResources())
+	if (quantity <= 0 && !infiniteResources)
 		return displayMessageToAlertBox(ENG_LANG.NO_ENOUGH_RESOURCE);
 	Player.player.setHandElement(element)
 	Player.player.setHandElementQuantity(quantity)

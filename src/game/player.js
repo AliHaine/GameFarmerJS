@@ -2,7 +2,6 @@ import Menu from "../view/menu.js";
 
 export default class Player {
     static player;
-    infiniteResources = document.getElementById("inputInfiniteRes").checked;
 
     constructor() {
         Player.player = this;
@@ -32,10 +31,6 @@ export default class Player {
 
     getMoney() {
         return this.money;
-    }
-
-    getInfiniteResources() {
-        return this.infiniteResources
     }
 
     setHandElement(handElement) {

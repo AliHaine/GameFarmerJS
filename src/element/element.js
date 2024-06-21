@@ -1,8 +1,8 @@
 import Map from "./../game/map.js";
 import Player from "../game/player.js";
+import {infiniteResources} from "../game_manager/game_settings.js";
 
 export default class Element {
-    //static timeToGrow = document.getElementById("inputTimeToGrow").value;
     static elements = [];
 
     constructor(image, elementAction) {
@@ -34,7 +34,7 @@ export default class Element {
     }
 
     setElementConditions(square) {
-        return !(Map.mapInstance.isSquareContainMaxElement(square) || (!Player.player.getInfiniteResources() && Player.player.getHandElementQuantity() <= 0));
+        return !(Map.mapInstance.isSquareContainMaxElement(square) || (!infiniteResources && Player.player.getHandElementQuantity() <= 0));
     }
 
     setHtmlDisplayCategory(htmlDisplayCategory) {

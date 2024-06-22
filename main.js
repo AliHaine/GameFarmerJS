@@ -15,6 +15,5 @@ export default function initGame() {
     defineGameSettings();
     Menu.closeCurrentMenu();
     LoadGame();
-    new Player();
     new Map();
 }

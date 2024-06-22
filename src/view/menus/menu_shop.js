@@ -1,11 +1,11 @@
 import Menu from "../menu.js";
 import Element from "../../element/element.js";
 import Resource from "../../game/resource.js";
+import Player from "../../game/player.js";
 
 export default class MenuShop extends Menu {
     async init() {
         await super.init();
-        //const div = this.menuHtmlContent.getElementsByClassName("shopItems")[0].createElement("div")
         const div = document.createElement("div");
         div.classList.add("shopItem");
 
@@ -29,10 +29,5 @@ export default class MenuShop extends Menu {
                 this.menuHtmlContent.getElementsByClassName("shopItems")[0].appendChild(div);
             }
         });
-    }
-
-    addImageToDiv(div, image) {
-        div.prepend(image.cloneNode(true));
-        this.menuHtmlContent.getElementsByClassName("shopItems")[0].appendChild(div);
     }
 }

@@ -7,17 +7,19 @@
     <div class="buttonClose"></div>
 </div>
 <div id="shopMore">
-    <img src="../assets/image/icon/melon_icon.png">
+    <div id="imgElement">
+        <img>
+    </div>
     <div id="buy">
         <label>Quantity</label>
-        <input type="text" id="buyQuantity" name="quantity" required minlength="1" maxlength="3" size="10" value="1" />
+        <input type="number" id="buyQuantity" name="quantity" required minlength="1" maxlength="3" size="10" value="1" />
         <label>price</label>
         <output id="buyPrice">1</output>
         <button class="menuItem button buttonBuy">Buy</button>
     </div>
     <div id="sell">
         <label>Quantity</label>
-        <input type="text" id="sellQuantity" name="quantity" required minlength="1" maxlength="3" size="10" value="1" />
+        <input type="number" id="sellQuantity" name="quantity" required minlength="1" maxlength="3" size="10" value="1" />
         <label>price</label>
         <output id="sellPrice">1</output>
         <button class="menuItem button buttonSell">Sell</button>

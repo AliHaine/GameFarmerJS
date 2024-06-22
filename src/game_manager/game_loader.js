@@ -17,12 +17,15 @@ import * as Listeners from "./listeners.js";
 import {IMG, IMG_ICON, TOOLBAR_CATEGORY} from "./game_assets.js";
 import ButtonPlay from "../view/buttons/button_play.js";
 import MenuShop from "../view/menus/menu_shop.js";
+import MenuShopMore from "../view/menus/menu_shop_more.js";
+import Player from "../game/player.js";
 
 export default function loadGame() {
     loadListeners();
 }
 
 export async function preLoadGame() {
+    new Player();
     loadResources();
     loadElements();
     loadButtons();
@@ -34,8 +37,9 @@ export async function preLoadGame() {
         button.executor(event.target);
     });
     document.getElementById("menus").addEventListener("input", function(event) {
-        console.log("input event", event.target.value);
-        console.log("input event", document.getElementById("out").textContent = event.target.value);
+        const value = event.target.value;
+        const output = event.target.parentElement.querySelector("output");
+        output.value = output.alt * value;
     })
     Menu.getMenu("menu-start.html").displayMenu();
 }
@@ -48,9 +52,9 @@ function loadElements() {
 
     (new ElementDefault(IMG.PLANT0)).setNaturalSpawnChance(75).setLootable(Resource.getResource("leaf"));
     (new ElementDefault(IMG.ROCK0)).setNaturalSpawnChance(30).setLootable(Resource.getResource("rock"), 3);
-    (new ElementDefault(IMG.FLOWER0)).setNaturalSpawnChance(2).setLootable(Resource.getResource("seed"));
-    (new ElementDefault(IMG.FLOWER1)).setNaturalSpawnChance(2).setLootable(Resource.getResource("seed"));
-    (new ElementDefault(IMG.FLOWER2)).setNaturalSpawnChance(2).setLootable(Resource.getResource("seed"));
+    (new ElementDefault(IMG.FLOWER0)).setNaturalSpawnChance(2).setLootable(Resource.getResource("seed0"));
+    (new ElementDefault(IMG.FLOWER1)).setNaturalSpawnChance(2).setLootable(Resource.getResource("seed0"));
+    (new ElementDefault(IMG.FLOWER2)).setNaturalSpawnChance(2).setLootable(Resource.getResource("seed0"));
     (new ElementDefault(IMG.TRUNK0)).setNaturalSpawnChance(10).setLootable(Resource.getResource("wood"), 2);
     (new ElementDefault(IMG.TREE0, new ActionPrune())).setNaturalSpawnChance(20).setLootable(Resource.getResource("wood"), 7).setBlockChild(Element.getElementFromId("trunk0"));
     (new ElementDefault(IMG.TREE1, new ActionPrune())).setNaturalSpawnChance(20).setLootable(Resource.getResource("wood"), 7).setBlockChild(Element.getElementFromId("trunk0"));
@@ -64,7 +68,7 @@ function loadElements() {
     (new ElementDefault(IMG.FENCE_WOOD_7)).setLootable(Resource.getResource("wood")).setHtmlDisplayCategory(TOOLBAR_CATEGORY.FENCE);
     (new ElementDefault(IMG.FENCE_WOOD_8)).setLootable(Resource.getResource("wood")).setHtmlDisplayCategory(TOOLBAR_CATEGORY.FENCE);
 
-    (new ElementCrop(IMG.MELON, "Melon", 1000, Resource.getResource("fruit"))).setPrice(5, 5);
+    (new ElementCrop(IMG.MELON, "Melon", 1000, Resource.getResource("fruit"))).setPrice(15, 5);
     (new ElementCrop(IMG.WHEAT, "Wheat", 1500, Resource.getResource("fruit"), 5)).setPrice(5, 5);
     (new ElementCrop(IMG.SUGARCANE, "Sugarcane", 1300, Resource.getResource("fruit"), 3)).setPrice(5, 5);
     (new ElementCrop(IMG.EGGPLANT, "Eggplant", 300, Resource.getResource("fruit"))).setPrice(5, 5);
@@ -79,7 +83,7 @@ async function loadMenus() {
     await new Menu("menu-start.html").init();
     await new Menu("menu-settings.html").init();
     await new MenuShop("menu-shop.html").init();
-    await new Menu("menu-shop-more.html").init();
+    await new MenuShopMore("menu-shop-more.html").init();
 
 }
 

@@ -1,5 +1,6 @@
 import Button from "../button.js";
 import Menu from "../menu.js";
+import Element from "../../element/element.js";
 
 export default class ButtonMore extends Button {
     constructor() {
@@ -7,8 +8,7 @@ export default class ButtonMore extends Button {
     }
 
     executor(eventTarget) {
-        console.log(eventTarget.parentElement);
-        eventTarget.parentElement;
-        Menu.getMenu("menu-shop-more.html").displayMenu();
+        const element = Element.getElementFromId(eventTarget.parentElement.querySelector("img").id);
+        Menu.getMenu("menu-shop-more.html").build(element).displayMenu();
     }
 }

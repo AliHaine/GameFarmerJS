@@ -35,6 +35,10 @@ export default class Menu {
         })
     }
 
+    build() {
+        throw Error("This function need to be implemented");
+    }
+
     static getMenu(menuId) {
         return Menu.menus.get(menuId);
     }

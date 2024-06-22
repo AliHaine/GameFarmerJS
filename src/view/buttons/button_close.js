@@ -1,5 +1,5 @@
 import Button from "../button.js";
-import Menu from "../../menu.js";
+import Menu from "../menu.js";
 
 export default class ButtonClose extends Button {
     constructor() {

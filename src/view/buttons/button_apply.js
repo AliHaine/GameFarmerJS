@@ -1,7 +1,7 @@
 import Button from "../button.js";
-import Menu from "../../menu.js";
-import {SOUND} from "../../../game_manager/game_assets.js";
-import {displayMessageToAlertBox} from "../../render.js";
+import Menu from "../menu.js";
+import {SOUND} from "../../game_manager/game_assets.js";
+import {displayMessageToAlertBox} from "../render.js";
 
 export default class ButtonApply extends Button {
     constructor() {

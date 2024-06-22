@@ -6,24 +6,25 @@ import Resource from "../game/resource.js";
 import ActionPrune from "../element/element_actions/action_prune.js";
 import Element from "../element/element.js";
 import ElementCrop from "../element/elements/element_crop.js";
-import Button from "../view/canvas/button.js";
-import ButtonApply from "../view/canvas/buttons/button_apply.js";
-import ButtonBuy from "../view/canvas/buttons/button_buy.js";
-import ButtonSell from "../view/canvas/buttons/button_sell.js";
-import ButtonClose from "../view/canvas/buttons/button_close.js";
-import ButtonMore from "../view/canvas/buttons/button_more.js";
+import Button from "../view/button.js";
+import ButtonApply from "../view/buttons/button_apply.js";
+import ButtonBuy from "../view/buttons/button_buy.js";
+import ButtonSell from "../view/buttons/button_sell.js";
+import ButtonClose from "../view/buttons/button_close.js";
+import ButtonMore from "../view/buttons/button_more.js";
 import Menu from "../view/menu.js";
 import * as Listeners from "./listeners.js";
 import {IMG, IMG_ICON, TOOLBAR_CATEGORY} from "./game_assets.js";
-import ButtonPlay from "../view/canvas/buttons/button_play.js";
+import ButtonPlay from "../view/buttons/button_play.js";
+import MenuShop from "../view/menus/menu_shop.js";
 
 export default function loadGame() {
-    loadResources();
-    loadElements();
     loadListeners();
 }
 
 export async function preLoadGame() {
+    loadResources();
+    loadElements();
     loadButtons();
     await loadMenus();
     document.getElementById("menus").addEventListener("click", function(event) {
@@ -32,6 +33,10 @@ export async function preLoadGame() {
             return;
         button.executor(event.target);
     });
+    document.getElementById("menus").addEventListener("input", function(event) {
+        console.log("input event", event.target.value);
+        console.log("input event", document.getElementById("out").textContent = event.target.value);
+    })
     Menu.getMenu("menu-start.html").displayMenu();
 }
 
@@ -59,11 +64,11 @@ function loadElements() {
     (new ElementDefault(IMG.FENCE_WOOD_7)).setLootable(Resource.getResource("wood")).setHtmlDisplayCategory(TOOLBAR_CATEGORY.FENCE);
     (new ElementDefault(IMG.FENCE_WOOD_8)).setLootable(Resource.getResource("wood")).setHtmlDisplayCategory(TOOLBAR_CATEGORY.FENCE);
 
-    new ElementCrop(IMG.MELON, "Melon", 1000, Resource.getResource("fruit"));
-    new ElementCrop(IMG.WHEAT, "Wheat", 1500, Resource.getResource("fruit"), 5);
-    new ElementCrop(IMG.SUGARCANE, "Sugarcane", 1300, Resource.getResource("fruit"), 3);
-    new ElementCrop(IMG.EGGPLANT, "Eggplant", 300, Resource.getResource("fruit"));
-    new ElementCrop(IMG.CHILI, "Chili", 700, Resource.getResource("fruit"), 2);
+    (new ElementCrop(IMG.MELON, "Melon", 1000, Resource.getResource("fruit"))).setPrice(5, 5);
+    (new ElementCrop(IMG.WHEAT, "Wheat", 1500, Resource.getResource("fruit"), 5)).setPrice(5, 5);
+    (new ElementCrop(IMG.SUGARCANE, "Sugarcane", 1300, Resource.getResource("fruit"), 3)).setPrice(5, 5);
+    (new ElementCrop(IMG.EGGPLANT, "Eggplant", 300, Resource.getResource("fruit"))).setPrice(5, 5);
+    (new ElementCrop(IMG.CHILI, "Chili", 700, Resource.getResource("fruit"), 2)).setPrice(5, 5);
 }
 
 function loadButtons() {
@@ -73,17 +78,17 @@ function loadButtons() {
 async function loadMenus() {
     await new Menu("menu-start.html").init();
     await new Menu("menu-settings.html").init();
-    await new Menu("menu-shop.html").init();
-    /*Menu.menus.set("menuSettings", new Menu(document.getElementById("menuSettings")));
-    Menu.menus.set("menuShop", new Menu(document.getElementById("menuShop")));*/
+    await new MenuShop("menu-shop.html").init();
+    await new Menu("menu-shop-more.html").init();
+
 }
 
 function loadResources() {
-    Resource.resources.set("fruit", new Resource("Fruit", IMG_ICON.FRUIT));
-    Resource.resources.set("seed", new Resource("Seed", IMG_ICON.SEED));
-    Resource.resources.set("rock", new Resource("Rock", IMG_ICON.ROCK));
-    Resource.resources.set("wood", new Resource("Wood", IMG_ICON.WOOD));
-    Resource.resources.set("leaf", new Resource("Leaf", IMG_ICON.LEAF));
+    new Resource("Fruit", IMG_ICON.FRUIT).setPrice(5, 5);
+    new Resource("Seed", IMG_ICON.SEED);
+    new Resource("Rock", IMG_ICON.ROCK);
+    new Resource("Wood", IMG_ICON.WOOD);
+    new Resource("Leaf", IMG_ICON.LEAF);
 }
 
 function loadListeners() {

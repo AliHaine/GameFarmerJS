@@ -70,6 +70,10 @@ export default class Element {
         return this.buyPrice;
     }
 
+    haveEconomy() {
+        return this.getBuyPrice() || this.getSellPrice();
+    }
+
     getResource() {
         return this.resource;
     }

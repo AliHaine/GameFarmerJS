@@ -10,7 +10,7 @@ import {resourceBarElement} from "../game_manager/game_assets.js";
  * @param {int} number - The amount of resource to add
  */
 export function addResourceToBar(resource, number) {
-    const img = resourceBarElement.querySelector(`li img[id="${resource.icon.id}"]`);
+    const img = resourceBarElement.querySelector(`li img[id="${resource.getResourceId()}"]`);
     const span = img.parentElement.querySelector('span');
     span.textContent = (parseInt(span.textContent) + number).toString()
 }

@@ -8,15 +8,44 @@ export default class Resource {
 		this.icon = icon;
 
 		const li = document.createElement("li")
-		li.appendChild(this.icon.cloneNode(true));
+		li.appendChild(this.getIcon().cloneNode(true));
 
 		let spanHTML = `<span class="txt">0</span>`;
 
 		li.insertAdjacentHTML('beforeend', spanHTML);
 		resourceBarElement.appendChild(li)
+
+		Resource.resources.set(this.getResourceId(), this);
+	}
+
+
+	setPrice(sellPrice, buyPrice) {
+		this.sellPrice = sellPrice;
+		this.buyPrice = buyPrice;
+		return this;
+	}
+
+	getSellPrice() {
+		return this.sellPrice;
+	}
+
+	getBuyPrice() {
+		return this.buyPrice;
+	}
+
+	haveEconomy() {
+		return this.getBuyPrice() || this.getSellPrice();
 	}
 
 	getResourceFromId(id) {}
+
+	getResourceId() {
+		return this.icon.id;
+	}
+
+	getIcon() {
+		return this.icon;
+	}
 
 	static getResource(resourceName) {
 		return Resource.resources.get(resourceName);

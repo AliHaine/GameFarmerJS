@@ -21,7 +21,7 @@ export default class ActionHarvest extends ElementAction {
 		if (!element.isGrown(getImageNumber(img.getAttribute("src"))))
 			return displayMessageToAlertBox(ENG_LANG.WAIT_CROP_GROW);
 		addResourceToBar(element.getResource(), element.getResourceNumber());
-		displayRightClick("+" + element.getResourceNumber(), element.getResource().icon, Player.player.getMouseX() + 40, Player.player.getMouseY());
+		displayRightClick("+" + element.getResourceNumber(), element.getResource().getIcon(), Player.player.getMouseX() + 40, Player.player.getMouseY());
 		removeElementImg(square);
 		replaceGroundImg(square, Element.getElementFromId("ground").getImage());
 	}

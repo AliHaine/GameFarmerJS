@@ -11,7 +11,7 @@ export default class ActionPrune extends ElementAction {
 	executor(square) {
 		const element = Element.getElementFromId(square.querySelectorAll('img')[1].getAttribute("id"))
 		addResourceToBar(element.getResource(), element.getResourceNumber());
-		displayRightClick("+" + element.getResourceNumber(), element.getResource().icon, Player.player.getMouseX() + 40, Player.player.getMouseY());
+		displayRightClick("+" + element.getResourceNumber(), element.getResource().getIcon(), Player.player.getMouseX() + 40, Player.player.getMouseY());
 		replaceElementImg(square, element.getBlockChild().getImage());
 	}
 }

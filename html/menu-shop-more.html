@@ -6,14 +6,20 @@
     <h1>Shop</h1>
     <div class="buttonClose"></div>
 </div>
-<div class="shopItems">
-    <div class="shopItem test">
-        <img src="assets/image/icon/melon_icon.png">
+<div id="shopMore">
+    <img src="../assets/image/icon/melon_icon.png">
+    <div id="buy">
+        <label>Quantity</label>
+        <input type="text" id="buyQuantity" name="quantity" required minlength="1" maxlength="3" size="10" value="1" />
+        <label>price</label>
+        <output id="buyPrice">1</output>
         <button class="menuItem button buttonBuy">Buy</button>
-        <button class="menuItem button buttonSell">Sell</button>
     </div>
-    <div class="shopItem">
-        <img src="assets/image/icon/wheat_icon.png">
-        <button class="menuItem button">Buy</button>
+    <div id="sell">
+        <label>Quantity</label>
+        <input type="text" id="sellQuantity" name="quantity" required minlength="1" maxlength="3" size="10" value="1" />
+        <label>price</label>
+        <output id="sellPrice">1</output>
+        <button class="menuItem button buttonSell">Sell</button>
     </div>
 </div>

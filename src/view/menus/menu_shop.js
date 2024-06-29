@@ -30,4 +30,9 @@ export default class MenuShop extends Menu {
             }
         });
     }
+
+    build() {
+        this.menuHtmlContent.querySelector("#playerMoney").textContent = Player.player.getMoney();
+        return this;
+    }
 }

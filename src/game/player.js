@@ -53,4 +53,8 @@ export default class Player {
     removeMoney(number) {
         this.money -= number;
     }
+
+    isMoneyEnough(price) {
+        return this.money - price >= 0;
+    }
 }

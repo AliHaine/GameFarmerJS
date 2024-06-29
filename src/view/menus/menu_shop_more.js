@@ -1,4 +1,5 @@
 import Menu from "../menu.js";
+import Player from "../../game/player.js";
 
 export default class MenuShopMore extends Menu {
 
@@ -10,6 +11,7 @@ export default class MenuShopMore extends Menu {
         this.menuHtmlContent.querySelector("#sellPrice").alt = element.getSellPrice();
         this.menuHtmlContent.querySelector("#buyQuantity").value = 1;
         this.menuHtmlContent.querySelector("#sellQuantity").value = 1;
+        this.menuHtmlContent.querySelector("#playerMoney").textContent = Player.player.getMoney();
         return this;
     }
 }

@@ -1,4 +1,4 @@
-import Menu from "../view/menu.js";
+import {resetCursor} from "../view/render.js";
 
 export default class Player {
     static player;
@@ -31,6 +31,11 @@ export default class Player {
 
     getMoney() {
         return this.money;
+    }
+
+    removeHandElement() {
+        this.handElement = null;
+        resetCursor();
     }
 
     setHandElement(handElement) {

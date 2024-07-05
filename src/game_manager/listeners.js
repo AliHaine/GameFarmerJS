@@ -1,7 +1,7 @@
 import Map from "../game/map.js";
 import Player from "../game/player.js";
 import Element from "../element/element.js";
-import {displayMessageToAlertBox} from "../view/render.js";
+import {displayMessageToAlertBox, resetCursor, setCustomCursor} from "../view/render.js";
 import Menu from "../view/menu.js";
 import {infiniteResources} from "./game_settings.js";
 
@@ -15,7 +15,7 @@ export function mouseDownToolBar(event) {
 		return displayMessageToAlertBox(ENG_LANG.NO_ENOUGH_RESOURCE);
 	Player.player.setHandElement(element)
 	Player.player.setHandElementQuantity(quantity)
-	document.body.style.cursor = "url(" + Player.player.getHandElement().getElementImageSrc() + "), auto";
+	setCustomCursor(Player.player.getHandElement().getElementImageSrc());
 }
 
 export function mouseDown(event) {
@@ -28,6 +28,7 @@ export function mouseDown(event) {
 	if (event.button === 0 && Player.player.getHandElement() != null)
 		Player.player.getHandElement().setElementToSquare(square);
 	else if (event.button === 2) {
+		Player.player.removeHandElement();
 		const element = Map.mapInstance.getElementFromSquare(square);
 		if (element.getElementAction() === undefined)
 			return;

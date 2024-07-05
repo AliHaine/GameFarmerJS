@@ -56,3 +56,11 @@ export function replaceElementImg(square, newElementImg) {
 export function removeElementImg(square) {
     square.removeChild(square.querySelectorAll('img')[1]);
 }
+
+export function setCustomCursor(imageSrc) {
+    document.getElementById("map").style.cursor = "url(" + imageSrc + ") 16 16, auto";
+}
+
+export function resetCursor() {
+    document.getElementById("map").style.cursor = "auto";
+}

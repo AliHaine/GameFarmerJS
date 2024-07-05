@@ -38,8 +38,7 @@ export default class Element {
     }
 
     setHtmlDisplayCategory(htmlDisplayCategory) {
-        this.htmlDisplayCategory = htmlDisplayCategory;
-        let div = document.createElement('div');
+        const div = document.createElement('div');
 		div.appendChild(this.image);
 
 		let spanName = `<span class="txt">${this.displayName}</span>`;
@@ -47,7 +46,8 @@ export default class Element {
 
 		div.insertAdjacentHTML('beforeend', spanName);
         div.insertAdjacentHTML('beforeend', spanNumber);
-		this.htmlDisplayCategory.appendChild(div);
+		htmlDisplayCategory.appendChild(div);
+        this.elementHtmlDiv = div;
         return this;
     }
 

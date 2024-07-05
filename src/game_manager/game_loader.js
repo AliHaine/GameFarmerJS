@@ -68,7 +68,7 @@ function loadElements() {
     (new ElementDefault(IMG.FENCE_WOOD_7)).setLootable(Resource.getResource("wood")).setHtmlDisplayCategory(TOOLBAR_CATEGORY.FENCE);
     (new ElementDefault(IMG.FENCE_WOOD_8)).setLootable(Resource.getResource("wood")).setHtmlDisplayCategory(TOOLBAR_CATEGORY.FENCE);
 
-    (new ElementCrop(IMG.MELON, "Melon", 1000, Resource.getResource("fruit"))).setPrice(15, 50000);
+    (new ElementCrop(IMG.MELON, "Melon", 1000, Resource.getResource("fruit"))).setPrice(15, 500);
     (new ElementCrop(IMG.WHEAT, "Wheat", 1500, Resource.getResource("fruit"), 5)).setPrice(5, 5);
     (new ElementCrop(IMG.SUGARCANE, "Sugarcane", 1300, Resource.getResource("fruit"), 3)).setPrice(5, 5);
     (new ElementCrop(IMG.EGGPLANT, "Eggplant", 300, Resource.getResource("fruit"))).setPrice(5, 5);

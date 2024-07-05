@@ -2,6 +2,7 @@ import Button from "../button.js";
 import Player from "../../game/player.js";
 import Menu from "../menu.js";
 import {displayMessageToAlertBox} from "../render.js";
+import Element from "../../element/element.js";
 
 export default class ButtonBuy extends Button {
     constructor() {
@@ -18,5 +19,9 @@ export default class ButtonBuy extends Button {
         }
         player.removeMoney(buyPrice);
         Menu.getMenu("menu-shop.html").build().displayMenu();
+
+        const buyElement = Element.getElementFromId(parentElement.parentElement.querySelector("#imgElement img").id);
+        const elementQuantity = parseInt(buyElement.elementHtmlDiv.querySelector(".txtNumber").textContent)
+        buyElement.elementHtmlDiv.querySelector(".txtNumber").textContent = elementQuantity + 1;
     }
 }

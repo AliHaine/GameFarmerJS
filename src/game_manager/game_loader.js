@@ -14,11 +14,12 @@ import ButtonClose from "../view/buttons/button_close.js";
 import ButtonMore from "../view/buttons/button_more.js";
 import Menu from "../view/menu.js";
 import * as Listeners from "./listeners.js";
-import {IMG, IMG_ICON, TOOLBAR_CATEGORY} from "./game_assets.js";
+import {IMG, IMG_ICON} from "./game_assets.js";
 import ButtonPlay from "../view/buttons/button_play.js";
 import MenuShop from "../view/menus/menu_shop.js";
 import MenuShopMore from "../view/menus/menu_shop_more.js";
 import Player from "../game/player.js";
+import {TOOLBAR_CATEGORY} from "../view/bar.js";
 
 export default function loadGame() {
     loadListeners();

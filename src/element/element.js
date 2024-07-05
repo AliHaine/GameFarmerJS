@@ -1,6 +1,7 @@
 import Map from "./../game/map.js";
 import Player from "../game/player.js";
 import {infiniteResources} from "../game_manager/game_settings.js";
+import {addChildToToolBar} from "../view/bar.js";
 
 export default class Element {
     static elements = [];
@@ -46,7 +47,7 @@ export default class Element {
 
 		div.insertAdjacentHTML('beforeend', spanName);
         div.insertAdjacentHTML('beforeend', spanNumber);
-		htmlDisplayCategory.appendChild(div);
+        addChildToToolBar(htmlDisplayCategory, div);
         this.elementHtmlDiv = div;
         return this;
     }

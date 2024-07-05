@@ -1,4 +1,5 @@
-import {resourceBarElement} from "../game_manager/game_assets.js";
+import {addChildToResourceBar} from "../view/bar.js";
+
 
 export default class Resource {
 	static resources = new Map();
@@ -13,7 +14,7 @@ export default class Resource {
 		let spanHTML = `<span class="txt">0</span>`;
 
 		li.insertAdjacentHTML('beforeend', spanHTML);
-		resourceBarElement.appendChild(li)
+		addChildToResourceBar(li);
 
 		Resource.resources.set(this.getResourceId(), this);
 	}

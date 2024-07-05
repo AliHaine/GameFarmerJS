@@ -1,14 +1,7 @@
 import {newImage} from "../utils.js";
 
-export const resourceBarElement = document.getElementById('ressourcebar').getElementsByTagName('ul')[0];
-
 export const SOUND = {
 	DEFAULT_SOUND: new Audio('assets/sound/default_sound.mp3')
-}
-
-export const TOOLBAR_CATEGORY = {
-	CROP: document.getElementById('dropup-crop'),
-	FENCE: document.getElementById('dropup-fence')
 }
 
 export const IMG = {

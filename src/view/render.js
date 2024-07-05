@@ -1,20 +1,3 @@
-import {resourceBarElement} from "../game_manager/game_assets.js";
-
-/**
- * Add a certain number to a resource in the displayed resource navbar.
- *
- * This function is used to update the quantity of a resource displayed
- * in the navigation bar of the user interface
- *
- * @param {Resource} resource - The resource to add
- * @param {int} number - The amount of resource to add
- */
-export function addResourceToBar(resource, number) {
-    const img = resourceBarElement.querySelector(`li img[id="${resource.getResourceId()}"]`);
-    const span = img.parentElement.querySelector('span');
-    span.textContent = (parseInt(span.textContent) + number).toString()
-}
-
 /**
  * Display text and image at the defined position on right-click event.
  *

@@ -3,7 +3,8 @@ import ActionHarvest from "../element_actions/action_harvest.js";
 import {newImages, getImageNumber} from "../../utils.js";
 import {addImgToSquare, replaceElementImg} from "../../view/render.js";
 import {timeToGrow} from "../../game_manager/game_settings.js";
-import {TOOLBAR_CATEGORY} from "../../view/bar.js";
+import {TOOLBAR_CATEGORY, updateToolBarQuantity} from "../../view/bar.js";
+import Player from "../../game/player.js";
 
 export default class ElementCrop extends Element {
 	constructor(image, displayName, timeToGrow, resource, resourceNumber = 1) {
@@ -15,8 +16,8 @@ export default class ElementCrop extends Element {
 		this.setHtmlDisplayCategory(TOOLBAR_CATEGORY.CROP)
 	}
 
-	setElementToSquare(square) {
-		if (!this.setElementConditions(square) || !square.querySelector('img#ground_farm'))
+	performSetElementToSquare(square) {
+		if (!square.querySelector('img#ground_farm'))
 			return;
 		addImgToSquare(square, this.stageImages[0]);
 		for (let i= 1; i <= this.stageImages.length - 1; i++) {
@@ -24,6 +25,10 @@ export default class ElementCrop extends Element {
 				replaceElementImg(square, this.stageImages[i]);
 			}, this.#cropGrowthCalculation(i));
 		}
+		Player.player.decreaseHandElementQuantity();
+		updateToolBarQuantity(this, -1);
+		if (Player.player.handElementQuantity <= 0)
+			Player.player.removeHandElement();
 	}
 
 	#cropGrowthCalculation(stage) {

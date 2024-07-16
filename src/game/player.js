@@ -35,6 +35,7 @@ export default class Player {
 
     removeHandElement() {
         this.handElement = null;
+        this.handElementQuantity = 0;
         resetCursor();
     }
 
@@ -49,6 +50,10 @@ export default class Player {
 
     setHandElementQuantity(handElementQuantity) {
         this.handElementQuantity = handElementQuantity;
+    }
+
+    decreaseHandElementQuantity() {
+        this.handElementQuantity--;
     }
 
     addMoney(number) {

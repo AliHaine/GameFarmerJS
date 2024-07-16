@@ -1,7 +1,6 @@
 import Map from "./../game/map.js";
-import Player from "../game/player.js";
-import {infiniteResources} from "../game_manager/game_settings.js";
 import {addChildToToolBar} from "../view/bar.js";
+import {displayMessageToAlertBox} from "../view/render.js";
 
 export default class Element {
     static elements = [];
@@ -31,11 +30,14 @@ export default class Element {
     }
 
     setElementToSquare(square) {
-        throw new Error("This function need to be implemented");
+        if (Map.mapInstance.isSquareContainMaxElement(square))
+            return displayMessageToAlertBox(ENG_LANG.SQUARE_FULL);
+
+        this.performSetElementToSquare(square);
     }
 
-    setElementConditions(square) {
-        return !(Map.mapInstance.isSquareContainMaxElement(square) || (!infiniteResources && Player.player.getHandElementQuantity() <= 0));
+    performSetElementToSquare(square) {
+        throw new Error("This function need to be implemented");
     }
 
     setHtmlDisplayCategory(htmlDisplayCategory) {

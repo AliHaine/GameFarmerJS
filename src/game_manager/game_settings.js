@@ -13,7 +13,6 @@ export default function defineGameSettings() {
     timeToGrow = document.getElementById("inputTimeToGrow").value;
     naturalGeneration = document.getElementById("inputNaturalGen").value;
     infiniteResources = document.getElementById("inputInfiniteRes").checked
-
     if (!document.getElementById("inputEnableSounds").checked)
         return
     SOUND.DEFAULT_SOUND.volume = 0.2;

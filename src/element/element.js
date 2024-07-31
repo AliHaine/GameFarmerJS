@@ -1,6 +1,9 @@
 import Map from "./../game/map.js";
 import {addChildToToolBar} from "../view/bar.js";
 import {displayMessageToAlertBox} from "../view/render.js";
+import {infiniteResources} from "../game_manager/game_settings.js";
+import Player from "../game/player.js";
+
 
 export default class Element {
     static elements = [];
@@ -32,7 +35,11 @@ export default class Element {
     setElementToSquare(square) {
         if (Map.mapInstance.isSquareContainMaxElement(square))
             return displayMessageToAlertBox(ENG_LANG.SQUARE_FULL);
-
+        if (!infiniteResources) {
+            Player.player.decreaseHandElementQuantity();
+            if (Player.player.getHandElementQuantity() <= 0)
+                Player.player.removeHandElement();
+        }
         this.performSetElementToSquare(square);
     }
 
@@ -46,9 +53,9 @@ export default class Element {
 
 		let spanName = `<span class="txt">${this.displayName}</span>`;
         let spanNumber = `<span class="txtNumber">0</span>`;
-
 		div.insertAdjacentHTML('beforeend', spanName);
-        div.insertAdjacentHTML('beforeend', spanNumber);
+        if (!infiniteResources)
+            div.insertAdjacentHTML('beforeend', spanNumber);
         addChildToToolBar(htmlDisplayCategory, div);
         this.elementHtmlDiv = div;
         return this;

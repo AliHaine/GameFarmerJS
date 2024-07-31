@@ -1,3 +1,5 @@
+import {infiniteResources} from "../game_manager/game_settings.js";
+
 const resourceBarElement = document.getElementById('ressourcebar').getElementsByTagName('ul')[0];
 
 export const TOOLBAR_CATEGORY = {
@@ -29,6 +31,8 @@ export function addChildToToolBar(toolbarCategory, element) {
 }
 
 export function updateToolBarQuantity(element, quantity) {
+    if (infiniteResources)
+        return;
     const elementQuantity = parseInt(element.elementHtmlDiv.querySelector(".txtNumber").textContent)
     element.elementHtmlDiv.querySelector(".txtNumber").textContent = elementQuantity + quantity;
 }

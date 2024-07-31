@@ -15,17 +15,20 @@ import ButtonMore from "../view/buttons/button_more.js";
 import Menu from "../view/menu.js";
 import * as Listeners from "./listeners.js";
 import {IMG, IMG_ICON} from "./game_assets.js";
-import ButtonPlay from "../view/buttons/button_play.js";
 import MenuShop from "../view/menus/menu_shop.js";
 import MenuShopMore from "../view/menus/menu_shop_more.js";
 import Player from "../game/player.js";
 import {TOOLBAR_CATEGORY} from "../view/bar.js";
+import defineGameSettings from "./game_settings.js";
+import Map from "../game/map.js";
 
 export default function loadGame() {
     loadListeners();
+    new Map();
 }
 
 export async function preLoadGame() {
+    defineGameSettings();
     new Player();
     loadResources();
     loadElements();
@@ -42,7 +45,6 @@ export async function preLoadGame() {
         const output = event.target.parentElement.querySelector("output");
         output.value = output.alt * value;
     })
-    Menu.getMenu("menu-start.html").displayMenu();
 }
 
 function loadElements() {
@@ -77,11 +79,10 @@ function loadElements() {
 }
 
 function loadButtons() {
-    Button.buttons.push(new ButtonApply(), new ButtonBuy(), new ButtonSell(), new ButtonClose(), new ButtonMore(), new ButtonPlay())
+    Button.buttons.push(new ButtonApply(), new ButtonBuy(), new ButtonSell(), new ButtonClose(), new ButtonMore())
 }
 
 async function loadMenus() {
-    await new Menu("menu-start.html").init();
     await new Menu("menu-settings.html").init();
     await new MenuShop("menu-shop.html").init();
     await new MenuShopMore("menu-shop-more.html").init();

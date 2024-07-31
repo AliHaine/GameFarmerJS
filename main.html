@@ -14,6 +14,38 @@
     <link rel="icon" type="image/png" href="assets/image/icon/favicon.png" />
 </head>
 <body draggable="false">
+    <div class="menu">
+        <h1>Game settings</h1>
+
+        <output class="menuItem">Map height</output>
+        <input id="inputMapHeight" class="menuItem slider" type="range" min="30" max="80" value="75">
+
+        <output class="menuItem">Map width</output>
+        <input id="inputMapWidth" class="menuItem slider" type="range" min="30" max="95" value="95">
+
+        <output class="menuItem">Time to grow</output>
+        <input id="inputTimeToGrow" class="menuItem slider" type="range" min="1" max="20" value="10">
+
+        <output class="menuItem">Natural generation</output>
+        <input id="inputNaturalGen" class="menuItem slider" type="range" min="1" max="100" value="70">
+
+        <output class="menuItem">Enable sounds</output>
+
+        <label class="container menuItem">
+            <input id="inputEnableSounds" type="checkbox" />
+            <span class="checkmark"></span>
+        </label>
+
+        <output class="menuItem">Infinite resources</output>
+
+        <label class="container menuItem">
+            <input id="inputInfiniteRes" type="checkbox" checked />
+            <span class="checkmark"></span>
+        </label>
+
+        <button id="buttonPlay" class="menuItem button buttonPlay">Play</button>
+    </div>
+
     <div id="menus"></div>
 
     <nav id="ressourcebar">

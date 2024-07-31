@@ -25,10 +25,7 @@ export default class ElementCrop extends Element {
 				replaceElementImg(square, this.stageImages[i]);
 			}, this.#cropGrowthCalculation(i));
 		}
-		Player.player.decreaseHandElementQuantity();
 		updateToolBarQuantity(this, -1);
-		if (Player.player.handElementQuantity <= 0)
-			Player.player.removeHandElement();
 	}
 
 	#cropGrowthCalculation(stage) {

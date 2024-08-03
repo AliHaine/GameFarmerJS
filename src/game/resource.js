@@ -1,4 +1,4 @@
-import {addChildToResourceBar} from "../view/bar.js";
+import {addChildToResourceBar, updateResourceBarNumber} from "../view/bar.js";
 
 
 export default class Resource {
@@ -7,6 +7,7 @@ export default class Resource {
 	constructor(displayName, image) {
 		this.displayName = displayName;
 		this.image = image;
+		this.quantity = 0;
 
 		const li = document.createElement("li")
 		li.appendChild(this.getImage().cloneNode(true));
@@ -36,6 +37,15 @@ export default class Resource {
 
 	haveEconomy() {
 		return this.getBuyPrice() || this.getSellPrice();
+	}
+
+	getQuantity() {
+		return this.quantity;
+	}
+
+	updateQuantity(quantityValue) {
+		this.quantity += quantityValue;
+		updateResourceBarNumber(this, this.quantity)
 	}
 
 	getResourceFromId(id) {}

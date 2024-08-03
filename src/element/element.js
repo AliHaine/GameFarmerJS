@@ -1,5 +1,5 @@
 import Map from "./../game/map.js";
-import {addChildToToolBar} from "../view/bar.js";
+import {addChildToToolBar, updateToolBarQuantity} from "../view/bar.js";
 import {displayMessageToAlertBox} from "../view/render.js";
 import {infiniteResources} from "../game_manager/game_settings.js";
 import Player from "../game/player.js";
@@ -13,6 +13,7 @@ export default class Element {
             throw new Error("Abstract classes can't be instantiated.");
         this.image = image;
         this.elementAction = elementAction;
+        this.quantity = 0;
         Element.elements.push(this);
     }
 
@@ -82,6 +83,15 @@ export default class Element {
 
     haveEconomy() {
         return this.getBuyPrice() || this.getSellPrice();
+    }
+
+    getQuantity() {
+        return this.quantity;
+    }
+
+    updateQuantity(quantityValue) {
+        this.quantity += quantityValue;
+        updateToolBarQuantity(this, this.quantity)
     }
 
     getResource() {

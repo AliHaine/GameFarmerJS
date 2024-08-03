@@ -25,7 +25,7 @@ export default class ElementCrop extends Element {
 				replaceElementImg(square, this.stageImages[i]);
 			}, this.#cropGrowthCalculation(i));
 		}
-		updateToolBarQuantity(this, -1);
+		this.updateQuantity(-1)
 	}
 
 	#cropGrowthCalculation(stage) {

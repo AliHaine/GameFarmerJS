@@ -8,7 +8,6 @@ import {
 	removeElementImg,
 	replaceGroundImg
 } from "../../view/render.js";
-import {updateResourceBarNumber} from "../../view/bar.js";
 
 export default class ActionHarvest extends ElementAction {
 	constructor() {
@@ -20,7 +19,7 @@ export default class ActionHarvest extends ElementAction {
 		const element = Element.getElementFromId(img.getAttribute("id"));
 		if (!element.isGrown(getImageNumber(img.getAttribute("src"))))
 			return displayMessageToAlertBox(ENG_LANG.WAIT_CROP_GROW);
-		updateResourceBarNumber(element.getResource(), element.getResourceNumber());
+		element.getResource().updateQuantity(element.getResourceNumber())
 		displayRightClick("+" + element.getResourceNumber(), element.getResource().getImage(), Player.player.getMouseX() + 40, Player.player.getMouseY());
 		removeElementImg(square);
 		replaceGroundImg(square, Element.getElementFromId("ground").getImage());

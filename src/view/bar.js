@@ -23,7 +23,7 @@ export function addChildToResourceBar(element) {
 export function updateResourceBarNumber(resource, number) {
     const img = resourceBarElement.querySelector(`li img[id="${resource.getResourceId()}"]`);
     const span = img.parentElement.querySelector('span');
-    span.textContent = (parseInt(span.textContent) + number).toString()
+    span.textContent = number.toString()
 }
 
 export function addChildToToolBar(toolbarCategory, element) {
@@ -33,10 +33,5 @@ export function addChildToToolBar(toolbarCategory, element) {
 export function updateToolBarQuantity(element, quantity) {
     if (infiniteResources)
         return;
-    const elementQuantity = parseInt(element.elementHtmlDiv.querySelector(".txtNumber").textContent)
-    element.elementHtmlDiv.querySelector(".txtNumber").textContent = elementQuantity + quantity;
-}
-
-export function getElementNumber(elementId) {
-    return
+    element.elementHtmlDiv.querySelector(".txtNumber").textContent = quantity.toString();
 }

@@ -3,7 +3,6 @@ import Player from "../../game/player.js";
 import Menu from "../menu.js";
 import {displayMessageToAlertBox} from "../render.js";
 import Element from "../../element/element.js";
-import {updateResourceBarNumber, updateToolBarQuantity} from "../bar.js";
 import Resource from "../../game/resource.js";
 
 export default class ButtonBuy extends Button {
@@ -13,7 +12,8 @@ export default class ButtonBuy extends Button {
 
     executor(eventTarget) {
         const parentElement = eventTarget.parentElement;
-        const buyPrice = parentElement.querySelector("#buyPrice").value;
+        const buyQuantity = parseInt(parentElement.querySelector("#buyQuantity").value);
+        const buyPrice = parentElement.querySelector("#buyPrice").value * buyQuantity;
         const player = Player.player;
         if (!player.isMoneyEnough(buyPrice)) {
             displayMessageToAlertBox(ENG_LANG.NO_ENOUGH_MONEY);
@@ -22,11 +22,8 @@ export default class ButtonBuy extends Button {
         player.removeMoney(buyPrice);
         Menu.getMenu("menu-shop.html").build().displayMenu();
         let buyElement = Element.getElementFromId(parentElement.parentElement.querySelector("#imgElement img").id);
-        if (buyElement)
-            updateToolBarQuantity(buyElement, 1);
-        else {
+        if (!buyElement)
             buyElement = Resource.getResource(parentElement.parentElement.querySelector("#imgElement img").id);
-            updateResourceBarNumber(buyElement, 1)
-        }
+        buyElement.updateQuantity(buyQuantity);
     }
 }

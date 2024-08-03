@@ -4,12 +4,12 @@ import {addChildToResourceBar} from "../view/bar.js";
 export default class Resource {
 	static resources = new Map();
 
-	constructor(displayName, icon) {
+	constructor(displayName, image) {
 		this.displayName = displayName;
-		this.icon = icon;
+		this.image = image;
 
 		const li = document.createElement("li")
-		li.appendChild(this.getIcon().cloneNode(true));
+		li.appendChild(this.getImage().cloneNode(true));
 
 		let spanHTML = `<span class="txt">0</span>`;
 
@@ -41,14 +41,14 @@ export default class Resource {
 	getResourceFromId(id) {}
 
 	getResourceId() {
-		return this.icon.id;
+		return this.image.id;
 	}
 
-	getIcon() {
-		return this.icon;
+	getImage() {
+		return this.image;
 	}
 
-	static getResource(resourceName) {
-		return Resource.resources.get(resourceName);
+	static getResource(resourceId) {
+		return Resource.resources.get(resourceId);
 	}
 }

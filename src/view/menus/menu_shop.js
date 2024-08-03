@@ -25,7 +25,7 @@ export default class MenuShop extends Menu {
 
         Resource.resources.forEach((resource) => {
             if (resource.haveEconomy()) {
-                div.prepend(resource.getIcon().cloneNode(true));
+                div.prepend(resource.getImage().cloneNode(true));
                 this.menuHtmlContent.getElementsByClassName("shopItems")[0].appendChild(div);
             }
         });

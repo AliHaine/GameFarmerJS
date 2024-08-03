@@ -3,7 +3,8 @@ import Player from "../../game/player.js";
 import Menu from "../menu.js";
 import {displayMessageToAlertBox} from "../render.js";
 import Element from "../../element/element.js";
-import {updateToolBarQuantity} from "../bar.js";
+import {updateResourceBarNumber, updateToolBarQuantity} from "../bar.js";
+import Resource from "../../game/resource.js";
 
 export default class ButtonBuy extends Button {
     constructor() {
@@ -20,8 +21,12 @@ export default class ButtonBuy extends Button {
         }
         player.removeMoney(buyPrice);
         Menu.getMenu("menu-shop.html").build().displayMenu();
-
-        const buyElement = Element.getElementFromId(parentElement.parentElement.querySelector("#imgElement img").id);
-        updateToolBarQuantity(buyElement, 1);
+        let buyElement = Element.getElementFromId(parentElement.parentElement.querySelector("#imgElement img").id);
+        if (buyElement)
+            updateToolBarQuantity(buyElement, 1);
+        else {
+            buyElement = Resource.getResource(parentElement.parentElement.querySelector("#imgElement img").id);
+            updateResourceBarNumber(buyElement, 1)
+        }
     }
 }

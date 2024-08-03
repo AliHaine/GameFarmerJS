@@ -36,3 +36,7 @@ export function updateToolBarQuantity(element, quantity) {
     const elementQuantity = parseInt(element.elementHtmlDiv.querySelector(".txtNumber").textContent)
     element.elementHtmlDiv.querySelector(".txtNumber").textContent = elementQuantity + quantity;
 }
+
+export function getElementNumber(elementId) {
+    return
+}

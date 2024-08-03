@@ -9,7 +9,7 @@ export default class ActionDefault extends ElementAction {
 		const element = Element.getElementFromId(square.querySelectorAll('img')[1].getAttribute("id"))
 		if (element.getResource() !== undefined) {
 			updateResourceBarNumber(element.getResource(), element.getResourceNumber());
-			displayRightClick("+" + element.getResourceNumber(), element.getResource().getIcon(),  Player.player.getMouseX() + 40, Player.player.getMouseY());
+			displayRightClick("+" + element.getResourceNumber(), element.getResource().getImage(),  Player.player.getMouseX() + 40, Player.player.getMouseY());
 		}
 		removeElementImg(square);
 	}

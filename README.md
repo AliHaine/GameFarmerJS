@@ -2,7 +2,7 @@
 
 # FarmSimulator
 
-This project is a game writed with html, css and javascript without framework or externale libraries. This game is a farm manager, player have to plant crops, build, manage animals, to recolt resources and make money. The main motivation for this project is to learn and increase skills in JavaScipt, HTML and CSS.
+This project is a game wrote with html, css and javascript without framework or external libraries. This game is a farm manager, player have to plant crops, build, manage animals, to recolt resources and make money. The main motivation for this project is to learn and increase skills in JavaScipt, HTML and CSS.
 
 ## Features
 
@@ -19,7 +19,7 @@ This project is a game writed with html, css and javascript without framework or
 
 ## Architecture and Pattern
 
-MVC: without the model part because there is no external communication or server.
+MVC: for the global project logical.
 Class only: This project is mainly for learn my personal skills, so I decide to use classes only to explore the limitations and advantages of classes in JS.
 ESM: Completely work with the modern ESM module management.
 
